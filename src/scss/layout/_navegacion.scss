@@ -25,10 +25,10 @@
 
 .barra {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    
-    padding-top: 3rem;
+    margin: 0;
+    padding: 0;
     @include tablet {
         flex-direction: row;        
         justify-content: space-between;
