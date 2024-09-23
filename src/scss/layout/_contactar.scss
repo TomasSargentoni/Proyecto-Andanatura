@@ -1,28 +1,36 @@
-.no-webp .imagen-contacto {
-    background-image: url("../img/encuentra.jpg");
+.preguntas {
+    
 }
 
-.webp .imagen-contacto {
-    background-image: url("../img/encuentra.webp");
-}
-
-
-.imagen-contacto{
-    background-position: center center;
-    background-size: cover;
-    padding: $separacion * 2 0;
+.opciones {
+    margin-top: -2rem;
+    padding-left: 5rem;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    
+  }
 
-    h2 {
-        font-size: 4rem;
-        font-weight: $black;
-        color: $blanco;
-    }
+  
 
-    p {
-        font-size: 1.8rem;
-        color: $blanco;
-    }
+.opciones input[type="radio"] {
+    display: none;
 }
+
+.opciones label {
+    font-size: 15px;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+.opciones input[type="radio"]:checked + label {
+    background-color: #4CAF50;
+    color: white; 
+    border-radius: 5px;
+    border: 1px solid #4CAF50;
+}
+
+.opciones label:hover {
+    background-color: #e0e0e0;
+  }

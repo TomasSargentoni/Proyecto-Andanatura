@@ -13,6 +13,7 @@ $router = new Router();
 
 // Zona Publica
 $router->get("/", [PaginasController::class, "index"]);
+$router->post("/", [PaginasController::class, "index"]);
 
 
 
