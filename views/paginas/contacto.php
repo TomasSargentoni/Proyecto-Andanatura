@@ -5,7 +5,7 @@
             <p class="alerta exito"> <?php echo $mensaje; ?></p>;
     <?php } ?>
 
-    <h1>Llene el formulario de contacto</h1>
+    <h1 class="texto_principal">ANEXO 1: TEST DE DIAGNÓSTICO Y AUTODIAGNOSTICO DE LA MADUREZ DIGITAL</h1>
 
     <form class="formulario" action="/contacto" method="POST">
         <fieldset>
@@ -16,37 +16,6 @@
             <label for="mensaje">Mensaje:</label>
             <textarea id="mensaje" name="contacto[mensaje]" required></textarea>
                     
-        </fieldset>
-
-        <fieldset>
-            <legend>Informacion sobre la Propiedad</legend>
-            <label for="opciones">Vende o Compra: </label>
-            <select id="opciones" name="contacto[tipo]" required>
-                <option value="" disabled selected>-- Seleccione --</option>
-                <option value="Compra">Compra</option>
-                <option value="Vende">Vende</option>
-            </select>
-
-            <label for="presupuesto">Precio o Presupuesto</label>
-            <input type="number" placeholder="Tu Precio o Presupuesto" id="presupuesto" name="contacto[precio]" required>
-        </fieldset>
-        
-        <fieldset>
-            <legend>Informacion sobre la propiedad</legend>
-
-            <p>Como desea ser contactado:</p>
-
-            <div class="forma-contacto">
-                <label for="contactar-telefono">Telefono</label>
-                <input type="radio" value="telefono" id="contactar-telefono" name="contacto[contacto]" required>
-
-                <label for="contactar-email">E-mail</label>
-                <input type="radio" value="email" id="contactar-email" name="contacto[contacto]" required>
-            </div>
-
-            <div id="contacto"></div>
-
-
         </fieldset>
 
         <input type="submit" value="Enviar" class="boton-verde">
