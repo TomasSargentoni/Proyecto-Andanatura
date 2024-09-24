@@ -13,7 +13,7 @@ html, body {
 /* Estilos del header */
 header {
     width: 100%;                  /* El header ocupa el ancho completo */
-    height: 20vh;                 /* Ajusta la altura al 50% del viewport */
+    height: 20vh;                 
     background-size: cover;        /* La imagen de fondo cubre todo el header */
     background-position: center;   /* Centra la imagen de fondo */
     background-repeat: no-repeat;  /* Evita que la imagen se repita */
@@ -26,11 +26,8 @@ img {
 
 /* Asegura que el contenido se vea bien en pantallas más pequeñas */
 @media (max-width: 768px) {
-    header {
-        height: 30vh;             /* Ajusta la altura del header en pantallas pequeñas */
-    }
 
     h1 {
-        font-size: 2rem;          /* Tamaño de fuente más pequeño en móviles */
+        font-size: 2,4rem;         /* Tamaño de fuente más pequeño en móviles */
     }
 }
