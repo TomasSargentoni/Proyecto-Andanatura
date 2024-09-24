@@ -151,6 +151,7 @@ function obtenerTextoResultante(int $total) {
 
 }
 
+
 function sumarResultados($numeros) {
 
     $numerosEtapaUno = array_slice($numeros, 0, 6);
@@ -199,11 +200,10 @@ function sumarResultados($numeros) {
     $numerosEtapaCuatro = array_slice($numeros, 16, 10);
     $puntajeCuatro = array_sum($numerosEtapaCuatro);
 
-    // OBSERVACION: EL PUNTAJE MAXIMO OBTENIBLE ES 50 NO 55, HAY QUE CAMBIARLO
-    if ($puntajeCuatro >= 44 && $puntajeCuatro <= 55) {
+    if ($puntajeCuatro >= 42 && $puntajeCuatro <= 50) {
         $nivelEtapaCuatro = "Alta";
     }
-    elseif ($puntajeCuatro >= 28 && $puntajeCuatro <= 43) {
+    elseif ($puntajeCuatro >= 28 && $puntajeCuatro <= 41) {
         $nivelEtapaCuatro = "Moderada";
     }
     else {
@@ -228,11 +228,10 @@ function sumarResultados($numeros) {
     $numerosEtapaSeis = array_slice($numeros, 30, 7);
     $puntajeSeis = array_sum($numerosEtapaSeis);
 
-    // OBSERVACION: EL PUNTAJE MAXIMO OBTENIBLE ES 35 NO 30, HAY QUE CAMBIARLO
-    if ($puntajeSeis >= 24 && $puntajeSeis <= 30) {
+    if ($puntajeSeis >= 26 && $puntajeSeis <= 35) {
         $nivelEtapaSeis = "Alta";
     }
-    elseif ($puntajeSeis >= 15 && $puntajeSeis <= 23) {
+    elseif ($puntajeSeis >= 15 && $puntajeSeis <= 25) {
         $nivelEtapaSeis= "Moderada";
     }
     else {
