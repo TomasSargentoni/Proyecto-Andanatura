@@ -1,0 +1,42 @@
+.opciones {
+  margin-top: -2rem;
+  padding-left: 5rem; /* Para pantallas grandes */
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap; /* Para permitir que las opciones se ajusten si es necesario */
+}
+
+.opciones input[type="radio"] {
+  display: none;
+}
+
+.opciones label {
+  font-size: 15px;
+  padding: 10px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.opciones input[type="radio"]:checked + label {
+  background-color: #4CAF50;
+  color: white; 
+  border-radius: 5px;
+  border: 1px solid #4CAF50;
+}
+
+.opciones label:hover {
+  background-color: #e0e0e0;
+}
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 768px) {
+  .opciones {
+      padding-left: 0; /* Elimina el padding en pantallas pequeñas */
+      justify-content: center; /* Centra las opciones */
+  }
+
+  .opciones label {
+      margin: 0 1rem; /* Agrega un margen entre las etiquetas */
+  }
+}

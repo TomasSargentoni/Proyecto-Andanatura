@@ -2,13 +2,10 @@
     padding: calc($separacion / 2);
     background-color: $grisOscuro;
     margin-bottom: 0;
-
-    a:hover {
-        color: $verde;
-    }
+    text-align: center; /* Centra el texto horizontalmente */
 
     .contenedor-footer {
-        padding-top: calc($separacion / 2)
+        padding-top: calc($separacion / 2);
     }
 
     .navegacion {
@@ -17,8 +14,8 @@
         height: auto;
     }
 
-    .copyright {
-        color: $blanco;
-        text-align: center;
+    p { /* Cambié .p a p para seleccionar el elemento <p> */
+        color: white; /* Asegura que el texto sea blanco */
+        margin: 0; /* Elimina márgenes que podrían afectar el centrado */
     }
 }

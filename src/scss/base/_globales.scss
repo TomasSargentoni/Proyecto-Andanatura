@@ -6,9 +6,10 @@ html {
     box-sizing: inherit;
 }
 body {
-    font-family: $fuente_principal;
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.6rem;
     line-height: 1.8;
+    background-color: #EAEAEA;
 }
 p {
     color: $negro;
@@ -33,7 +34,7 @@ picture {
 h1, h2, h3 {
     font-family: $fuente_principal;
     margin: calc($separacion / 2) 0;
-    font-weight: 300;
+    font-weight: bold;
     text-align: center;
     
 }
@@ -42,11 +43,13 @@ h1 {
     font-size: 3.8rem;
 }
 h2 {
-    font-size: 3.4rem;
+    font-size: 3rem;
 }
 h3 {
     font-size: 3rem;
 }
 h4 {
-    font-size: 2.6rem;
+    font-size: 2.3rem;
+    margin-top: 3.8rem;
+    
 }
