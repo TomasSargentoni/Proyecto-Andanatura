@@ -2,7 +2,7 @@
     <h1 class="texto_principal">ANEXO 1: TEST DE DIAGNÓSTICO Y AUTODIAGNÓSTICO DE LA MADUREZ DIGITAL</h1>
     <h2>Encuesta para Diagnosticar el Estado de Madurez Digital de la Empresa</h2>
 
-    <form class="formulario" action="" method="POST">
+    <form class="formulario" method="POST">
     <?php
         // Generar preguntas dinámicamente
         foreach ($preguntas as $index => $pregunta) { ?>
@@ -30,6 +30,12 @@
                     <?php } ?>
                 </div>
         <?php } ?>
+
+        <input type="hidden" id="nombreEmpresaHidden" name="nombreEmpresa">
+        <input type="hidden" id="nombreContactoHidden" name="nombreContacto">
+        <input type="hidden" id="apellidoContactoHidden" name="apellidoContacto">
+        <input type="hidden" id="correoContactoHidden" name="correoContacto">
+        <input type="hidden" id="telefonoContactoHidden" name="telefonoContacto">
 
         <input type="submit" value="Enviar" class="boton-verde">
     </form>

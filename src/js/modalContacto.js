@@ -7,7 +7,7 @@
         const modal = document.createElement("DIV");
         modal.classList.add("modal");
         modal.innerHTML = `
-            <form class="formulario contacto-form" method="POST" action="/">
+            <form class="formulario contacto-form" method="POST">
                 <legend>Datos de Contacto</legend>
                 <div class="campo">
                     <label for="empresa">Nombre de la empresa</label>
@@ -57,12 +57,18 @@
                 const email = document.getElementById("email").value.trim();
                 const telefono = document.getElementById("telefono").value.trim();
 
-
+                // Validar que no estén vacíos
                 if (empresa === "" || nombre === "" || apellido === "" || email === "" || telefono === "") {
                     mostrarAlerta("Todos los campos son obligatorios", "error", document.querySelector(".formulario legend"));
                     return;
                 }
 
+                // Rellenar los campos ocultos en el formulario principal
+                document.getElementById("nombreEmpresaHidden").value = empresa;
+                document.getElementById("nombreContactoHidden").value = nombre;
+                document.getElementById("apellidoContactoHidden").value = apellido;
+                document.getElementById("correoContactoHidden").value = email;
+                document.getElementById("telefonoContactoHidden").value = telefono;
 
                 cerrarModal(modal);
             }
