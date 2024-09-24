@@ -1,8 +1,8 @@
 <main class="contenedor">
     <h2>ENCUESTA PARA DIAGNOSTICAR EL ESTADO DE MADUREZ DIGITAL DE LA EMPRESA</h2>
 
-    <form class="formulario" action="" method="POST">
-        <?php
+    <form class="formulario" method="POST">
+    <?php
         // Generar preguntas dinámicamente
         foreach ($preguntas as $index => $pregunta) { ?>
                 <?php 
@@ -24,12 +24,21 @@
                 <br><label class="pregunta"><?php echo ($index + 1) . ". " . $pregunta; ?></label><br>
                 <div class="opciones">
                     <?php for ($i = 1; $i <= 5; $i++) { ?>
-                        <input type="radio" id="pregunta<?php echo $index+1; ?>_seleccion<?php echo $i; ?>" name="pregunta<?php echo $index+1; ?>" value="<?php echo $i; ?>" required>
+                        <input type="radio" id="pregunta<?php echo $index+1; ?>_seleccion<?php echo $i; ?>" name="pregunta<?php echo $index+1; ?>" value="<?php echo $i; ?>" required onchange="actualizarPuntaje(<?php echo $index+1; ?>, <?php echo $i; ?>, obtenerTemaId(<?php echo $index; ?>))">
                         <label for="pregunta<?php echo $index+1; ?>_seleccion<?php echo $i; ?>"><?php echo $i; ?></label>
                     <?php } ?>
                 </div>
         <?php } ?>
 
+        <input type="hidden" id="nombreEmpresaHidden" name="nombreEmpresa">
+        <input type="hidden" id="nombreContactoHidden" name="nombreContacto">
+        <input type="hidden" id="apellidoContactoHidden" name="apellidoContacto">
+        <input type="hidden" id="correoContactoHidden" name="correoContacto">
+        <input type="hidden" id="telefonoContactoHidden" name="telefonoContacto">
+
         <input type="submit" value="Enviar" class="boton-verde">
     </form>
 </main>
+
+
+

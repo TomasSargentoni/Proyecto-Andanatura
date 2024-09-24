@@ -9,12 +9,12 @@ class PaginasController {
     public static function index(Router $router) {  
         
         $temas = [
-            "1. ACCESO A LA INFRAESTRUCTURA DIGITAL [ ]",
-            "2. ASEQUIBILIDAD [ ]",
-            "3. HABILIDADES DIGITALES [ ]",
-            "4. USO EFECTIVO DE LA TECNOLOGÍA [ ]",
-            "5. DESIGUALDADES DIGITALES [ ]",
-            "6. SEGURIDAD DIGITAL Y CUMPLIMIENTO REGULATORIO [ ]"
+            '1. ACCESO A LA INFRAESTRUCTURA DIGITAL',
+            '2. ASEQUIBILIDAD',
+            '3. HABILIDADES DIGITALES',
+            '4. USO EFECTIVO DE LA TECNOLOGÍA',
+            '5. DESIGUALDADES DIGITALES',
+            '6. SEGURIDAD DIGITAL Y CUMPLIMIENTO REGULATORIO'
         ];
             
         $preguntas = [
