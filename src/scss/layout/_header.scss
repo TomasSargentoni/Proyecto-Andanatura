@@ -22,12 +22,3 @@ header {
 img {
     height: 20vh;
 }
-
-
-/* Asegura que el contenido se vea bien en pantallas más pequeñas */
-@media (max-width: 768px) {
-
-    h1 {
-        font-size: 2,4rem;         /* Tamaño de fuente más pequeño en móviles */
-    }
-}
