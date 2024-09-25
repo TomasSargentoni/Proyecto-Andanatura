@@ -7,6 +7,7 @@ use MVC\Router;
 require 'PDFController.php';
 
 use Classes\Paginacion;
+use GuzzleHttp\Psr7\ServerRequest;
 
 class PaginasController {
     public static function index(Router $router) {  
@@ -89,7 +90,10 @@ class PaginasController {
 
             // debuguear(obtenerTextoResultante($suma[6]));
 
-            generarPDF();
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+                generarPDF();
+            }
             
         // Página actual (sección actual)
         $pagina_actual = isset($_GET['page']) ? filter_var($_GET['page'], FILTER_VALIDATE_INT) : 1;
