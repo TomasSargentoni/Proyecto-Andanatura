@@ -1,6 +1,7 @@
 .opciones {
-  margin-top: -2rem;
+  margin-top: -2.5rem;
   padding-left: 5rem; /* Para pantallas grandes */
+  margin-bottom: 2rem;
   display: flex;
   align-items: center;
   flex-wrap: wrap; /* Para permitir que las opciones se ajusten si es necesario */
@@ -23,6 +24,7 @@
   color: white; 
   border-radius: 5px;
   border: 1px solid #4CAF50;
+
 }
 
 .opciones label:hover {
@@ -34,9 +36,12 @@
   .opciones {
       padding-left: 0; /* Elimina el padding en pantallas pequeñas */
       justify-content: center; /* Centra las opciones */
+      margin-bottom: 3rem;
+      margin-top: -4rem;
   }
 
   .opciones label {
       margin: 0 1rem; /* Agrega un margen entre las etiquetas */
+      
   }
 }
