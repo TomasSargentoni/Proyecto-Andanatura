@@ -48,3 +48,11 @@
     }
 
 }
+
+@media (max-width: 768px) {
+    .formulario .preguntas {
+        margin-top: 1.5rem; /* Espaciado entre preguntas */
+        margin-bottom: 0;
+    }
+
+}
