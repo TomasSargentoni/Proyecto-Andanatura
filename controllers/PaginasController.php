@@ -4,6 +4,8 @@ namespace Controllers;
 
 use MVC\Router;
 
+require 'PDFController.php';
+
 
 class PaginasController {
     public static function index(Router $router) {  
@@ -60,9 +62,12 @@ class PaginasController {
         if($_SERVER["REQUEST_METHOD"] === "POST") {
 
             $numeros = array_slice($_POST, 0, 37);
+            
             $suma = sumarResultados($numeros);
 
-            debuguear(obtenerTextoResultante($suma[6]));
+            // debuguear(obtenerTextoResultante($suma[6]));
+
+            generarPDF();
             
         }
 
