@@ -84,13 +84,11 @@ class PaginasController {
             6 => range(30, 36)    // Sección 6
         ];
 
-            $numeros = array_slice($_POST, 0, 37);
-            
-            $suma = sumarResultados($numeros);
-
-            // debuguear(obtenerTextoResultante($suma[6]));
-
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $numeros = array_slice($_POST, 0, 37);
+                
+                $suma = sumarResultados($numeros);
 
                 generarPDF();
             }
