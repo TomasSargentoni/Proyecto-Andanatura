@@ -16,7 +16,7 @@
         display: block;
     }
 
-    input:not([type="submit"]), textarea, select  {
+    input:not([type="submit"]), textarea, select {
         padding: 1rem;
         display: block;
         width: 100%;
@@ -42,17 +42,25 @@
         width: auto;
     }
 
-    .preguntas{
+    .preguntas {
         font-weight: 500;
         text-align: justify;
+        text-align-last: left; /* Alinea la última línea a la izquierda */
     }
-
 }
 
 @media (max-width: 768px) {
     .formulario .preguntas {
         margin-top: 1.5rem; /* Espaciado entre preguntas */
-        margin-bottom: 0;
+        
+        text-align: center; /* Centra el texto en pantallas pequeñas */
+        text-align-last: center;
+        font-size: 1.5rem; /* Opcionalmente, reduce el tamaño de la fuente */
+        line-height: 1.5; /* Ajusta el interlineado para mejorar legibilidad */
     }
 
+    /* También puedes ajustar el tamaño de la fuente de otros elementos en pantallas pequeñas */
+    .formulario p {
+        font-size: 1.2rem;
+    }
 }
