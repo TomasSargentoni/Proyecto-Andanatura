@@ -47,17 +47,37 @@
         text-align: justify;
         text-align-last: left; /* Alinea la última línea a la izquierda */
     }
+
+    .contenedor-botones {
+        display: flex;
+        justify-content: space-between;
+    }
 }
 
 @media (max-width: 768px) {
-    .formulario .preguntas {
+    .formulario {
+
+        .preguntas {
         margin-top: 1.5rem; /* Espaciado entre preguntas */
         font-size: 1.5rem;
         text-align: center; /* Centra el texto en pantallas pequeñas */
         text-align-last: center;
         font-size: 1.5rem; /* Opcionalmente, reduce el tamaño de la fuente */
         line-height: 1.5; /* Ajusta el interlineado para mejorar legibilidad */
+        }
+
+       .contenedor-botones {
+        display: flex;
+        .paginacion {
+            display:flex;
+            justify-content: space-between;
+            
+        }
+       }
     }
+
+
+
 
     /* También puedes ajustar el tamaño de la fuente de otros elementos en pantallas pequeñas */
     .formulario p {
