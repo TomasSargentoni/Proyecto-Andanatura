@@ -37,7 +37,7 @@
         <input type="hidden" id="telefonoContactoHidden" name="telefonoContacto">
 
         <div class="contenedor-botones">
-            <input type="submit" value="Enviar" class="boton-verde">
+            <input class="<?php echo ($pagina_actual == 6) ? 'boton-verde' : 'boton-submit'; ?>" type="submit" value="Enviar" class="boton-verde">
             <!-- Paginación para moverse entre secciones -->
             <div class="paginacion">
                 <?php if ($pagina_actual > 1): ?>

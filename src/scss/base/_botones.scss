@@ -22,3 +22,7 @@
 .boton-verde-block {
     @include boton($verde, block)
 }
+
+.boton-submit{
+    display: none;
+}
