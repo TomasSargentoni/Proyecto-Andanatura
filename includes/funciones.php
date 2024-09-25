@@ -147,7 +147,7 @@ function obtenerTextoResultante(int $total) {
         $mensaje = $mensajeBaja;
     }
 
-    return $mensaje;
+    return "Usted obtuvo " . $total . " puntos<br>" . $mensaje;
 
 }
 

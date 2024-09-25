@@ -58,7 +58,11 @@ class PaginasController {
         ];
 
         if($_SERVER["REQUEST_METHOD"] === "POST") {
-            debuguear($_POST);
+
+            $numeros = array_slice($_POST, 0, 37);
+            $suma = sumarResultados($numeros);
+
+            debuguear(obtenerTextoResultante($suma[6]));
             
         }
 
