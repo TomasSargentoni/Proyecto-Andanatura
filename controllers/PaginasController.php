@@ -86,7 +86,6 @@ class PaginasController {
         ];
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
             $datosEmpresa = array_slice($_POST, 36, 5);
 
             $numeros = array_slice($_POST, 0, 37);
@@ -98,29 +97,11 @@ class PaginasController {
         }
 
             
-        // Página actual (sección actual)
-        $pagina_actual = isset($_GET['page']) ? filter_var($_GET['page'], FILTER_VALIDATE_INT) : 1;
-
-        // Asegurarse de que la página sea válida
-        if (!$pagina_actual || $pagina_actual < 1 || $pagina_actual > count($secciones)) {
-            $pagina_actual = 1;
-        }
-
-        // Obtener el rango de preguntas para la sección actual
-        $preguntas_seccion = $secciones[$pagina_actual];
-
-        // Extraer las preguntas correspondientes a la sección actual
-        $preguntas_paginadas = array_intersect_key($preguntas, array_flip($preguntas_seccion));
-
-        // Instanciar la clase de paginación
-        $paginacion = new Paginacion($pagina_actual, count($preguntas_seccion), count($preguntas));
 
         // Renderizar la vista con las preguntas paginadas
         $router->render('paginas/contacto', [
-            'preguntas' => $preguntas_paginadas,
-            'temas' => $temas,
-            'pagina_actual' => $pagina_actual, // Agregar la página actual para el uso en contacto.php
-            'paginacion' => $paginacion->paginacion() // Generar botones de paginación
+            'preguntas' => $preguntas,
+            'temas' => $temas
         ]);
     }
 }

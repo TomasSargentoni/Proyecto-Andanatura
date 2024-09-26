@@ -1,33 +1,18 @@
 // Inicializar puntajes por tema
 let puntajes = {
-    1: 0, 
-    2: 0, 
-    3: 0, 
-    4: 0, 
-    5: 0, 
-    6: 0, 
+    1: 0,
+    2: 0,
+    3: 0,
+    4: 0,
+    5: 0,
+    6: 0,
 };
 
 // Guardar respuestas anteriores para restarlas en caso de cambio
 let respuestasAnteriores = {};
 
-// Función para obtener el ID del tema según la pregunta
-function obtenerTemaId(preguntaIndex) {
-    if (preguntaIndex >= 0 && preguntaIndex < 6) {
-        return 1;
-    } else if (preguntaIndex >= 6 && preguntaIndex < 9) {
-        return 2;
-    } else if (preguntaIndex >= 9 && preguntaIndex < 16) {
-        return 3;
-    } else if (preguntaIndex >= 16 && preguntaIndex < 26) {
-        return 4;
-    } else if (preguntaIndex >= 26 && preguntaIndex < 30) {
-        return 5;
-    } else if (preguntaIndex >= 30 && preguntaIndex < 37) {
-        return 6;
-    }
-    return 0; // En caso de error
-}
+// Variable para llevar el seguimiento de la sección actual
+let pasoActual = 1;
 
 // Función para actualizar el puntaje
 function actualizarPuntaje(preguntaId, valor, temaId) {
@@ -46,3 +31,52 @@ function actualizarPuntaje(preguntaId, valor, temaId) {
     // Actualizar el puntaje en la interfaz
     document.getElementById(`puntaje${temaId}`).textContent = puntajes[temaId];
 }
+
+// Función para actualizar la visibilidad de los pasos y botones
+function actualizarBotones() {
+    // Ocultar todos los pasos
+    const pasos = document.querySelectorAll('.seccion');
+    pasos.forEach((paso, index) => {
+        if (index + 1 === pasoActual) {
+            paso.classList.remove('ocultar');
+        } else {
+            paso.classList.add('ocultar');
+        }
+    });
+
+    // Lógica para mostrar/ocultar botones
+    const btnAnterior = document.getElementById('anterior');
+    const btnSiguiente = document.getElementById('siguiente');
+    const btnEnviar = document.getElementById('enviar');
+
+    // Mostrar/ocultar el botón "Anterior"
+    btnAnterior.style.display = pasoActual === 1 ? 'none' : 'inline-block';
+
+    // Mostrar/ocultar los botones "Siguiente" y "Enviar"
+    if (pasoActual === 6) {
+        btnSiguiente.style.display = 'none';
+        btnEnviar.style.display = 'inline-block';
+    } else {
+        btnSiguiente.style.display = 'inline-block';
+        btnEnviar.style.display = 'none';
+    }
+}
+
+// Inicializa la encuesta y los botones
+actualizarBotones();
+
+// Manejador de eventos para el botón "Siguiente"
+document.getElementById('siguiente').addEventListener('click', () => {
+    if (pasoActual < 6) {
+        pasoActual++;
+        actualizarBotones();
+    }
+});
+
+// Manejador de eventos para el botón "Anterior"
+document.getElementById('anterior').addEventListener('click', () => {
+    if (pasoActual > 1) {
+        pasoActual--;
+        actualizarBotones();
+    }
+});
