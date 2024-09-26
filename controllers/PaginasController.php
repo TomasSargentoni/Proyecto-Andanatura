@@ -5,6 +5,7 @@ namespace Controllers;
 use MVC\Router;
 
 require 'PDFController.php';
+require 'MailController.php';
 
 use Classes\Paginacion;
 
@@ -83,13 +84,18 @@ class PaginasController {
             6 => range(30, 36)    // Sección 6
         ];
 
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            $datosEmpresa = array_slice($_POST, 36, 5);
+
             $numeros = array_slice($_POST, 0, 37);
-            
             $suma = sumarResultados($numeros);
+            $mensaje = obtenerTextoResultante($suma[6]);
 
-            // debuguear(obtenerTextoResultante($suma[6]));
+            // LA SIGUIENTE FUNCION GENERA EL PDF Y LO ENVÍA (Enviar datos de la empresa - resultados de cada etapa y total - mensaje)
+            generarPDF($datosEmpresa, $suma, $mensaje);
+        }
 
-            generarPDF();
             
         // Página actual (sección actual)
         $pagina_actual = isset($_GET['page']) ? filter_var($_GET['page'], FILTER_VALIDATE_INT) : 1;
