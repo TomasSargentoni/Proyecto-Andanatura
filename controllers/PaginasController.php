@@ -86,14 +86,6 @@ class PaginasController {
         ];
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-<<<<<<< HEAD
-                debuguear($_POST);
-                $numeros = array_slice($_POST, 0, 37);
-                
-                $suma = sumarResultados($numeros);
-=======
->>>>>>> 8a596ac95695c7d5be95a6cda1b629f1c4d77190
-
             $datosEmpresa = array_slice($_POST, 36, 5);
 
             $numeros = array_slice($_POST, 0, 37);
