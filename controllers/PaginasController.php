@@ -5,6 +5,7 @@ namespace Controllers;
 use MVC\Router;
 
 require 'PDFController.php';
+require 'MailController.php';
 
 use Classes\Paginacion;
 use GuzzleHttp\Psr7\ServerRequest;
@@ -84,15 +85,25 @@ class PaginasController {
             6 => range(30, 36)    // Sección 6
         ];
 
-        
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+<<<<<<< HEAD
                 debuguear($_POST);
                 $numeros = array_slice($_POST, 0, 37);
                 
                 $suma = sumarResultados($numeros);
+=======
+>>>>>>> 8a596ac95695c7d5be95a6cda1b629f1c4d77190
 
-                generarPDF();
-            }
+            $datosEmpresa = array_slice($_POST, 36, 5);
+
+            $numeros = array_slice($_POST, 0, 37);
+            $suma = sumarResultados($numeros);
+            $mensaje = obtenerTextoResultante($suma[6]);
+
+            // LA SIGUIENTE FUNCION GENERA EL PDF Y LO ENVÍA (Enviar datos de la empresa - resultados de cada etapa y total - mensaje)
+            generarPDF($datosEmpresa, $suma, $mensaje);
+        }
+
             
 
         // Renderizar la vista con las preguntas paginadas

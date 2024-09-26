@@ -9,7 +9,7 @@ require '../vendor/autoload.php';
 use Dompdf\Dompdf;
 use Dompdf\Options;
 
-function generarPDF() {
+function generarPDF($datosEmpresa, $suma, $mensaje) {
     // Opciones para configurar DOMPDF
     $options = new Options();
     $options->set('defaultFont', 'Courier');
@@ -19,7 +19,11 @@ function generarPDF() {
 
     // Cargar el contenido HTML
     $html = '<h1 style="text-align: center;">Hola Mundo</h1>';
-    $html .= '<p>Este es un ejemplo de PDF generado con DOMPDF.</p>';
+
+    $html .= 'Los datos de la empresa son: ' . $datosEmpresa . '<br>' .
+        'Las puntuaciones de cada etapa y la total son: ' . $suma . '<br>' .
+        'Su mensaje:' . $mensaje;
+
     $dompdf->loadHtml($html);
 
     // Configurar el tamaño de papel y la orientación
@@ -28,9 +32,28 @@ function generarPDF() {
     // Renderizar el PDF
     $dompdf->render();
 
-    // Guardar el PDF en el sistema de archivos
-    file_put_contents('mi_documento.pdf', $dompdf->output());
+    // Obtener el contenido del PDF generado
+    $pdfContent = $dompdf->output();
 
-    // Mostrar el PDF en el navegador
-    $dompdf->stream('mi_documento.pdf', array('Attachment' => false));
+    // Llamar a la función para enviar el correo con el PDF en memoria
+    $enviado = enviarEmail($pdfContent);
+
+    // Mostrar el PDF en el navegador solo si se envió el correo
+    if ($enviado) {
+        mostrarPDF($pdfContent);
+    } else {
+        echo "Error al enviar el correo.";
+    }
+}
+
+function mostrarPDF($pdfContent) {
+    // Asegúrate de que no haya salida previa
+    if (ob_get_length()) {
+        ob_end_clean(); // Limpiar el buffer de salida si hay algo
+    }
+
+    header('Content-Type: application/pdf');
+    header('Content-Disposition: inline; filename="mi_documento.pdf"');
+    echo $pdfContent;
+    exit; // Termina la ejecución del script después de mostrar el PDF
 }
