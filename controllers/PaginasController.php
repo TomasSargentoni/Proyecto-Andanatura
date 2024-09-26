@@ -8,6 +8,7 @@ require 'PDFController.php';
 require 'MailController.php';
 
 use Classes\Paginacion;
+use GuzzleHttp\Psr7\ServerRequest;
 
 class PaginasController {
     public static function index(Router $router) {  
