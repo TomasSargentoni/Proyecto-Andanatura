@@ -12,7 +12,7 @@ body {
     background-color: #EAEAEA;
 }
 p {
-    color: $negro;
+    color: #000; /* Asegúrate de definir $negro correctamente si es una variable */
     font-size: 2rem;
 }
 .contenedor {
@@ -20,25 +20,20 @@ p {
     max-width: 120rem;
     margin: 0 auto;
 }
-
 a {
     text-decoration: none;
 }
-
 img,
 picture {
     width: 100%;
     display: block;
 }
-
 h1, h2, h3 {
-    font-family: $fuente_principal;
-    margin: calc($separacion / 2) 0;
+    font-family: 'Montserrat', sans-serif; /* Cambia a la fuente deseada */
+    margin: 0.5rem 0;
     font-weight: bold;
     text-align: center;
-    
 }
-
 h1 {
     font-size: 3.8rem;
 }
@@ -51,17 +46,12 @@ h3 {
 h4 {
     font-size: 2.3rem;
     margin-top: 3.8rem;
-    
 }
-
-
 /* Asegura que el contenido se vea bien en pantallas más pequeñas */
 @media (max-width: 768px) {
-
     h2 {
         font-size: 2.7rem;
     }
-
     h3 {
         font-size: 2rem;
     }

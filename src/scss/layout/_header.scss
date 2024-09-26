@@ -12,11 +12,10 @@ html, body {
 
 /* Estilos del header */
 header {
-    width: 100%;                  /* El header ocupa el ancho completo */
+    width: 100%;                  
     height: 30vh;                 
-    background-size: cover;        /* La imagen de fondo cubre todo el header */
-    background-position: center;   /* Centra la imagen de fondo */
-    background-repeat: no-repeat;  /* Evita que la imagen se repita */
+    background-image: url('../../../public/build/img/logo.jpg'); /* Imagen por defecto */
+    background-position: center;      
 }
 
 img {
@@ -26,11 +25,12 @@ img {
 /* Media Query para dispositivos móviles */
 @media (max-width: 600px) {
     header {
-        height: 13.5vh;             /* Cambia la altura para pantallas pequeñas */
-        background-size: contain;  /* Cambia a contain para evitar que la imagen se distorsione */
+        height: 10vh;             /* Altura adecuada para pantallas pequeñas */
+        background-image: url('../../../public/build/img/logoChiquito.jpg'); /* Imagen para pantallas pequeñas */
+        background-size: cover;   /* Asegúrate de que la imagen cubra el header */
     }
 
     img {
-        height: 13.5vh;
+        height: 10vh;
     }
 }
