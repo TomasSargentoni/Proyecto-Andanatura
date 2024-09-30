@@ -1,7 +1,7 @@
 <main class="contenedor">
     <h2>Encuesta para Diagnosticar el Estado de Madurez Digital de la Empresa</h2>
 
-    <form class="formulario" method="POST">
+    <form class="formulario" method="POST" onsubmit="return validarFormulario();">
         <!-- Sección 1 -->
         <div id="paso-1" class="seccion">
             <h3><?php echo $temas[0] ?> [<span id="puntaje1">0</span>]</h3>
@@ -88,8 +88,8 @@
 
         <div class="contenedor-botones">
             <button type="button" id="anterior" class="boton-verde ocultar">Anterior</button>
-            <button type="button" id="siguiente" class="boton-verde">Siguiente</button>
             <button type="submit" id="enviar" class="boton-verde">Enviar</button>
+            <button type="button" id="siguiente" class="boton-verde">Siguiente</button>
         </div>
 
         <input type="hidden" id="nombreEmpresaHidden" name="nombreEmpresa">
@@ -100,4 +100,12 @@
 
 
     </form>
+    <?php
+    if (!empty($errores)) {
+                // Mostrar los errores en caso de que falten respuestas
+                foreach ($errores as $error) {
+                    echo "<p class='error'>$error</p>";
+                }
+    }
+    ?>
 </main>

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Controllers;
 
@@ -75,28 +75,15 @@ class PaginasController {
             "¿Su empresa interactúa con los servicios de administración electrónica para trámites fiscales y regulatorios de manera digital?"
         ];
 
-        // Definir las secciones y sus preguntas
-        $secciones = [
-            1 => range(0, 5),     // Sección 1
-            2 => range(6, 8),     // Sección 2
-            3 => range(9, 15),   // Sección 3
-            4 => range(16, 25),   // Sección 4
-            5 => range(26, 29),   // Sección 5
-            6 => range(30, 36)    // Sección 6
-        ];
-
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $datosEmpresa = array_slice($_POST, 36, 5);
 
+            $datosEmpresa = array_slice($_POST, 37, 5);
             $numeros = array_slice($_POST, 0, 37);
             $suma = sumarResultados($numeros);
             $mensaje = obtenerTextoResultante($suma[6]);
-
-            // LA SIGUIENTE FUNCION GENERA EL PDF Y LO ENVÍA (Enviar datos de la empresa - resultados de cada etapa y total - mensaje)
             generarPDF($datosEmpresa, $suma, $mensaje);
         }
-
-            
+        
 
         // Renderizar la vista con las preguntas paginadas
         $router->render('paginas/contacto', [

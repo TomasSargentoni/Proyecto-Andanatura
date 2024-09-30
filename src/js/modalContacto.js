@@ -8,7 +8,7 @@
         modal.classList.add("modal");
         modal.innerHTML = `
             <form class="formulario contacto-form" method="POST">
-                <legend>Datos de Contacto</legend>
+                <legend class="legend">Datos de Contacto</legend>
                 <div class="campo">
                     <label for="empresa">Nombre de la empresa</label>
                     <input type="text" id="empresa" name="nombreEmpresa" placeholder="Nombre de la empresa" required>
@@ -29,9 +29,8 @@
                     <label for="telefono">Teléfono</label>
                     <input type="tel" id="telefono" name="telefonoContacto" placeholder="Teléfono" required>
                 </div>
-                <div class="opciones">
+                <div class="opciones-enviar">
                     <input type="submit" class="submit-datos-contacto" value="Enviar Datos">
-                    <button type="button" class="cerrar-modal">Cancelar</button>
                 </div>
             </form>
         `;
@@ -46,10 +45,6 @@
         modal.addEventListener("click", function(e) {
             e.preventDefault();
 
-            if (e.target.classList.contains("cerrar-modal")) {
-                cerrarModal(modal);
-            }
-
             if (e.target.classList.contains("submit-datos-contacto")) {
                 const empresa = document.getElementById("empresa").value.trim();
                 const nombre = document.getElementById("nombre").value.trim();
@@ -57,9 +52,23 @@
                 const email = document.getElementById("email").value.trim();
                 const telefono = document.getElementById("telefono").value.trim();
 
-                // Validar que no estén vacíos
+                // Validar que los campos no estén vacíos
                 if (empresa === "" || nombre === "" || apellido === "" || email === "" || telefono === "") {
                     mostrarAlerta("Todos los campos son obligatorios", "error", document.querySelector(".formulario legend"));
+                    return;
+                }
+
+                // Validar formato de email
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    mostrarAlerta("El correo electrónico no es válido", "error", document.querySelector(".formulario legend"));
+                    return;
+                }
+
+                // Validar que el teléfono sea numérico
+                const telefonoRegex = /^\d+$/;
+                if (!telefonoRegex.test(telefono)) {
+                    mostrarAlerta("El número de teléfono debe contener solo números", "error", document.querySelector(".formulario legend"));
                     return;
                 }
 
