@@ -15,7 +15,7 @@ function enviarEmail($pdfContent) {
         $mail->Host       = 'smtp.gmail.com'; // Servidor SMTP de Gmail
         $mail->SMTPAuth   = true;
         $mail->Username   = 'digitalizacion.andanatura@gmail.com'; // Tu dirección de correo Gmail
-        $mail->Password   = 'gerz fqya sipo ijov'; // Tu contraseña de aplicación
+        $mail->Password   = 'dxpm srvg oyld ihdx'; // Tu contraseña de aplicación
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port       = 587;
 

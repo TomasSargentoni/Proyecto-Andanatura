@@ -78,10 +78,12 @@ class PaginasController {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $datosEmpresa = array_slice($_POST, 37, 5);
-            $numeros = array_slice($_POST, 0, 37);
-            $suma = sumarResultados($numeros);
+            $puntajes = array_map('strval',array_slice($_POST, 0, 37));;
+            $suma = sumarResultados($puntajes);
             $mensaje = obtenerTextoResultante($suma[6]);
-            generarPDF($datosEmpresa, $suma, $mensaje);
+
+
+            generarPDF($datosEmpresa, $suma, $mensaje, $preguntas, $puntajes, $temas);
         }
         
 

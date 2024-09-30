@@ -147,14 +147,16 @@ function obtenerTextoResultante(int $total) {
         $mensaje = $mensajeBaja;
     }
 
-    return "Usted obtuvo " . $total . " puntos<br>" . $mensaje;
+    $mensajeFinal = 'Usted obtuvo ' . $total . ' puntos. ' . $mensaje;
+    return $mensajeFinal;
 
 }
 
 
 function sumarResultados($numeros) {
 
-    $numerosEtapaUno = array_slice($numeros, 0, 6);
+    
+    $numerosEtapaUno = array_map('strval', array_slice($numeros, 0, 6));
     $puntajeUno = array_sum($numerosEtapaUno);
 
     if ($puntajeUno >= 24 && $puntajeUno <= 30) {
@@ -169,7 +171,7 @@ function sumarResultados($numeros) {
 
 
 
-    $numerosEtapaDos = array_slice($numeros, 6, 3);
+    $numerosEtapaDos = array_map('strval',array_slice($numeros, 6, 3));
     $puntajeDos = array_sum($numerosEtapaDos);
 
     if ($puntajeDos >= 12 && $puntajeDos <= 15) {
@@ -183,7 +185,7 @@ function sumarResultados($numeros) {
     }
 
 
-    $numerosEtapaTres = array_slice($numeros, 9, 7);
+    $numerosEtapaTres = array_map('strval',array_slice($numeros, 9, 7));
     $puntajeTres = array_sum($numerosEtapaTres);
 
     if ($puntajeTres >= 28 && $puntajeTres <= 35) {
@@ -197,7 +199,7 @@ function sumarResultados($numeros) {
     }
 
 
-    $numerosEtapaCuatro = array_slice($numeros, 16, 10);
+    $numerosEtapaCuatro = array_map('strval',array_slice($numeros, 16, 10));
     $puntajeCuatro = array_sum($numerosEtapaCuatro);
 
     if ($puntajeCuatro >= 42 && $puntajeCuatro <= 50) {
@@ -211,7 +213,7 @@ function sumarResultados($numeros) {
     }
 
 
-    $numerosEtapaCinco = array_slice($numeros, 26, 4);
+    $numerosEtapaCinco = array_map('strval',array_slice($numeros, 26, 4));
     $puntajeCinco = array_sum($numerosEtapaCinco);
 
     if ($puntajeCinco >= 16 && $puntajeCinco <= 20) {
@@ -225,7 +227,7 @@ function sumarResultados($numeros) {
     }
 
 
-    $numerosEtapaSeis = array_slice($numeros, 30, 7);
+    $numerosEtapaSeis = array_map('strval',array_slice($numeros, 30, 7));
     $puntajeSeis = array_sum($numerosEtapaSeis);
 
     if ($puntajeSeis >= 26 && $puntajeSeis <= 35) {
