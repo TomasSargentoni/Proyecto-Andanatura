@@ -81,13 +81,14 @@
     margin: 1rem 0;
     border-radius: 0.5rem;
     font-size: 2rem;
+    font-weight: 700;
     text-align: center;
     width: 100%; /* Ancho completo para que se vea bien */
 }
 
 .alerta.error {
     background-color: #f8d7da; /* Color de fondo rojo claro */
-    color: #721c24; /* Color del texto rojo oscuro */
+    color: #d30a1e; /* Color del texto rojo oscuro */
     border: 1px solid #f5c6cb; /* Borde rojo claro */
 }
 

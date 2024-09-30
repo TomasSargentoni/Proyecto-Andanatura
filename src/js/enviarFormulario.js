@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // Si no hay ninguna opción seleccionada, agregar error
                 if (!checked) {
-                    errores.push(`Debe responder la pregunta ${parseInt(name.replace('pregunta', '')) + 1}.`);
+                    errores.push(`Por favor responda la pregunta ${parseInt(name.replace('pregunta', '')) + 1} y envie el formulario.`);
                 }
 
                 // Marcar esta pregunta como validada
