@@ -52,6 +52,10 @@
         display: flex;
         justify-content: space-between;
     }
+
+    #siguiente {
+        margin-left: auto; /* Esto alinea el botón a la derecha */
+    }
 }
 
 @media (max-width: 768px) {
@@ -66,14 +70,14 @@
         line-height: 1.5; /* Ajusta el interlineado para mejorar legibilidad */
         }
 
-       .contenedor-botones {
-        display: flex;
-        .paginacion {
-            display:flex;
+        .contenedor-botones {
+            display: flex;
             justify-content: space-between;
-            
         }
-       }
+
+        #siguiente {
+            margin-left: auto;
+        }
     }
 
 
