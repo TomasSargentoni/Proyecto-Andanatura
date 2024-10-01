@@ -49,7 +49,7 @@ class PaginasController {
             
             // Preguntas de la Sección 4
             "¿Los empleados utilizan regularmente herramientas digitales colaborativas (como Microsoft Teams, Google Workspace, Slack) para trabajar en equipo?",
-            "¿La empresa utiliza servicios digitales para tareas cotidianas como facturación electrónica, firmas digitales o plataformas de comercio electrónic",
+            "¿La empresa utiliza servicios digitales para tareas cotidianas como facturación electrónica, firmas digitales o plataformas de comercio electrónico?",
             "¿Su empresa vende productos o servicios en línea mediante sistemas de comercio electrónico?",
             "¿Usan estrategias de marketing digital (SEO, SEM, redes sociales) para atraer clientes y mejorar la presencia en línea?",
             "¿La empresa utiliza tecnología digital para mejorar la toma de decisiones, como análisis de datos o software de gestión empresarial?",

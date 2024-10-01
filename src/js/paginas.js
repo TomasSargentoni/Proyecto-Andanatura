@@ -11,6 +11,11 @@ document.addEventListener("DOMContentLoaded", function () {
         anteriorBtn.classList.toggle("ocultar", index === 0);
         siguienteBtn.classList.toggle("ocultar", index === secciones.length - 1);
         actualizarPuntaje(index);
+        
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     }
 
     function actualizarPuntaje(index) {
