@@ -30,109 +30,36 @@ function s($html) {
     return $s;
 }
 
-// Validar tipo de Contenido
-function validarTipoContenido($tipo) {
-    $tipos = ["vendedor", "propiedad"];
-
-    return in_array($tipo, $tipos);
-}
-
-// Muestra los mensajes
-function mostrarNotificacion($codigo) {
-    $mensaje = "";
-
-    switch($codigo) {
-        case 1:
-            $mensaje = "Creado Correctamente";
-            break;
-        case 2:
-            $mensaje = "Actualizado Correctamente";
-            break;
-        case 3:
-            $mensaje = "Eliminado Correctamente";
-            break;
-        default:
-            $mensaje = false;
-            break;
-
-    }
-
-    return $mensaje;
-}
-
-function validarORedireccionar(string $url) {
-    // Validar la URL por ID valido
-    $id = $_GET["id"];
-    $id = filter_var($id, FILTER_VALIDATE_INT);
-
-    if (!$id) {
-        header("Location: $url");
-    }
-
-    return $id;
-}
-
 function obtenerTextoResultante(int $total) {
 
     // Devuelve el texto correcto dependiendo el resultado total
 
-    $mensajeAlta = "Alta Madurez Digital (150-185 puntos):
-    Descripción: Tu empresa se encuentra en un nivel avanzado de madurez digital. Tiene 
-    una infraestructura tecnológica sólida, con acceso equitativo a dispositivos y 
-    conectividad. Se aprovechan las tecnologías emergentes, como inteligencia artificial y 
-    análisis de datos, y los empleados están bien capacitados en habilidades digitales. Hay 
-    un compromiso claro con la seguridad y el cumplimiento de normativas, y se asegura 
-    que todos los empleados, incluso los que trabajan en áreas remotas, tienen el acceso 
-    necesario a la infraestructura digital.
-    Recomendaciones:
-    ▪ Mantén las actualizaciones continuas de infraestructura y formación digital.
-    ▪ Sigue explorando e implementando nuevas tecnologías para mantener la 
-    ventaja competitiva.
-    ▪ Refuerza la cultura de ciberseguridad y revisa constantemente los protocolos.
-    ▪ Revisa el plan estratégico para atraer y retener talento digital, asegurándote de 
-    adaptarlo a las nuevas tendencias tecnológicas.";
+    $mensajeAlta = "<html> Alta Madurez Digital (150-185 puntos): \n
+    Descripción: Tu empresa se encuentra en un nivel avanzado de madurez digital. Tiene una infraestructura tecnológica sólida, con acceso equitativo a dispositivos y conectividad. Se aprovechan las tecnologías emergentes, como inteligencia artificial y análisis de datos, y los empleados están bien capacitados en habilidades digitales. Hay un compromiso claro con la seguridad y el cumplimiento de normativas, y se asegura que todos los empleados, incluso los que trabajan en áreas remotas, tienen el acceso necesario a la infraestructura digital. \n
+    Recomendaciones: \n
+    o Mantén las actualizaciones continuas de infraestructura y formación digital. \n
+    o Sigue explorando e implementando nuevas tecnologías para mantener la ventaja competitiva. \n
+    o Refuerza la cultura de ciberseguridad y revisa constantemente los protocolos. \n
+    o Revisa el plan estratégico para atraer y retener talento digital, asegurándote de adaptarlo a las nuevas tendencias tecnológicas. </html>";
 
-    $mensajeMedia = "Madurez Digital Media (100-149 puntos):
-    Descripción: Tu empresa tiene una buena base tecnológica, pero hay áreas de mejora. 
-    Aunque ya existe un acceso adecuado a tecnologías digitales y un enfoque en 
-    automatización y análisis de datos, algunas partes de la empresa pueden no estar 
-    completamente alineadas. Puede que haya disparidades entre empleados en términos 
-    de acceso a la tecnología o formación, o que la empresa no esté utilizando al máximo 
-    las nuevas tecnologías.
-    Recomendaciones:
-    ▪ Fortalece la formación en habilidades digitales para los empleados, 
-    asegurando que los que tienen menos experiencia también reciban 
-    entrenamiento.
-    ▪ Revisa la infraestructura de conectividad, sobre todo para empleados en áreas 
-    remotas.
-    ▪ Evalúa la implementación de tecnologías emergentes y sistemas de 
-    automatización en áreas donde aún no se han integrado.
-    ▪ Refuerza los protocolos de seguridad digital, asegurando que estén 
-    actualizados y bien implementados.
-    ▪ Mejora el uso de herramientas colaborativas y de marketing digital para 
-    maximizar la eficiencia operativa y la visibilidad online.";
+    $mensajeMedia = "Madurez Digital Media (100-149 puntos): \n
+    Descripción: Tu empresa tiene una buena base tecnológica, pero hay áreas de mejora. Aunque ya existe un acceso adecuado a tecnologías digitales y un enfoque en automatización y análisis de datos, algunas partes de la empresa pueden no estar completamente alineadas. Puede que haya disparidades entre empleados en términos de acceso a la tecnología o formación, o que la empresa no esté utilizando al máximo las nuevas tecnologías. \n
+    Recomendaciones: \n
+    o Fortalece la formación en habilidades digitales para los empleados, asegurando que los que tienen menos experiencia también reciban entrenamiento. \n
+    o Revisa la infraestructura de conectividad, sobre todo para empleados en áreas remotas. \n
+    o Evalúa la implementación de tecnologías emergentes y sistemas de automatización en áreas donde aún no se han integrado. \n
+    o Refuerza los protocolos de seguridad digital, asegurando que estén actualizados y bien implementados. \n
+    o Mejora el uso de herramientas colaborativas y de marketing digital para maximizar la eficiencia operativa y la visibilidad online.";
 
-    $mensajeBaja = "Baja Madurez Digital (Menos de 100 puntos):
-    Descripción: Tu empresa tiene un bajo nivel de madurez digital. Esto significa que 
-    existen muchas áreas críticas que necesitan atención, como la infraestructura 
-    tecnológica, la capacitación en habilidades digitales, la seguridad cibernética, y la 
-    equidad en el acceso a herramientas digitales. La empresa puede estar enfrentando 
-    dificultades para adaptarse al entorno digital actual, lo que podría afectar su 
-    competitividad y eficiencia.
-    Recomendaciones:
-    ▪ Realiza inversiones inmediatas en infraestructura tecnológica y conectividad 
-    para asegurar que todos los empleados tengan acceso adecuado.
-    ▪ Implementa un plan integral de formación en habilidades digitales para todo el 
-    personal.
-    ▪ Refuerza las medidas de seguridad digital, instalando y actualizando sistemas 
-    de protección como firewalls, antivirus y herramientas de monitoreo.
-    ▪ Introduce sistemas de automatización y análisis de datos para mejorar la 
-    eficiencia en la toma de decisiones.
-    ▪ Explora la adopción de tecnologías emergentes que pueden traer ventajas 
-    competitivas.
-    ▪ Revisa el cumplimiento de las normativas de protección de datos, como el 
-    GDPR, y asegúrate de implementar medidas de seguridad para proteger los 
-    datos de los clientes.";
+    $mensajeBaja = "Baja Madurez Digital (Menos de 100 puntos): \n
+    Descripción: Tu empresa tiene un bajo nivel de madurez digital. Esto significa que existen muchas áreas críticas que necesitan atención, como la infraestructura tecnológica, la capacitación en habilidades digitales, la seguridad cibernética, y la equidad en el acceso a herramientas digitales. La empresa puede estar enfrentando dificultades para adaptarse al entorno digital actual, lo que podría afectar su competitividad y eficiencia. \n
+    Recomendaciones: \n
+    o Realiza inversiones inmediatas en infraestructura tecnológica y conectividad para asegurar que todos los empleados tengan acceso adecuado. \n
+    o Implementa un plan integral de formación en habilidades digitales para todo el personal. \n
+    o Refuerza las medidas de seguridad digital, instalando y actualizando sistemas de protección como firewalls, antivirus y herramientas de monitoreo. \n
+    o Introduce sistemas de automatización y análisis de datos para mejorar la eficiencia en la toma de decisiones. \n
+    o Explora la adopción de tecnologías emergentes que pueden traer ventajas competitivas. \n
+    o Revisa el cumplimiento de las normativas de protección de datos, como el GDPR, y asegúrate de implementar medidas de seguridad para proteger los datos de los clientes.";
 
 
     if ($total >= 150 && $total <= 185) {
@@ -147,7 +74,9 @@ function obtenerTextoResultante(int $total) {
         $mensaje = $mensajeBaja;
     }
 
-    $mensajeFinal = 'Usted obtuvo ' . $total . ' puntos. ' . $mensaje;
+    $mensajeConSaltos = nl2br($mensaje);
+
+    $mensajeFinal = 'Usted obtuvo ' . $total . ' puntos. <br />' . $mensajeConSaltos;
     return $mensajeFinal;
 
 }

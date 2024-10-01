@@ -32,8 +32,13 @@ function generarPDF($datosEmpresa, $suma, $mensaje, $preguntas, $puntajes, $tema
     // Cargar el contenido HTML
     $html = '
     <style>
+        @font-face {
+            font-family: "Montserrat";
+            src: url("../fonts/Montserrat-Regular.ttf") format("truetype");
+        }
         body {
             padding-top: 150px; /* Espacio para el contenido debajo de la imagen */
+            font-family: "Montserrat", sans-serif; /* Cambia a la fuente deseada */
         }
         .fixed-image {
             position: fixed; /* Fijo en la parte superior */
@@ -46,6 +51,9 @@ function generarPDF($datosEmpresa, $suma, $mensaje, $preguntas, $puntajes, $tema
         .content {
             margin-top: 20px; /* Espacio para el contenido */
         }
+        .preguntas { /* Estilo para las preguntas */
+            font-family: "Montserrat", sans-serif;
+        }
     </style>
 
     <div class="fixed-image">
@@ -55,7 +63,7 @@ function generarPDF($datosEmpresa, $suma, $mensaje, $preguntas, $puntajes, $tema
     // Contenedor para el contenido principal
     $html .= '<div class="content">'; // Añadir margen superior
     $html .= '<h1 style="text-align: center;">Resultados test - ' . htmlspecialchars(reset($datosEmpresa)) . '</h1>';
-    $html .= '<h2>Resultados de las preguntas:</h2><ul><br>';
+    $html .= '<h2 style="text-align: center;"></h2><ol class="preguntas"><br>'; // Cambiado <ul> a <ol>
 
     // Inicializar una variable para almacenar las preguntas y resultados
     $preguntasYResultados = '';
@@ -65,19 +73,20 @@ function generarPDF($datosEmpresa, $suma, $mensaje, $preguntas, $puntajes, $tema
 
     // Recorre cada pregunta y su puntaje correspondiente
     for ($i = 0; $i < $cantidadPreguntas; $i++) {
+
         $pregunta = htmlspecialchars($preguntas[$i]);
         $puntaje = $puntajes["pregunta" . $i];
 
         // Concatenar cada resultado a la variable
-        $preguntasYResultados .= '<li>' . $pregunta . ' <br>Puntaje: ' . $puntaje . '</li><br>';
+        $preguntasYResultados .= '<li>' . $pregunta . ' <br>Puntaje: <b>' . $puntaje . '</b></li><br>';
     }
 
     // Añadir los resultados a HTML después del bucle
     $html .= $preguntasYResultados;
-    $html .= '</ul>';
+    $html .= '</ol>'; // Cambiado </ul> a </ol>
 
     // Generar la tabla con temas y puntajes
-    $html .= '<h2>Resumen de Temas y Puntajes</h2>';
+    $html .= '<br><br><h2>Resumen de Temas y Puntajes</h2>';
     $html .= '<table border="1" style="width: 100%; border-collapse: collapse; text-align: left;">';
     $html .= '<thead><tr><th>Tema</th><th>Puntuación</th></tr></thead><tbody>';
 
@@ -89,7 +98,8 @@ function generarPDF($datosEmpresa, $suma, $mensaje, $preguntas, $puntajes, $tema
 
     $html .= '</tbody></table>'; // Cerrar la tabla
 
-    $html .= '<br><br>' . htmlspecialchars($mensaje);
+    // Asegurarse de que el mensaje use la misma fuente
+    $html .= '<br><br> <p style="text-align: justify;">' . ($mensaje) . '</p>';
     $html .= '</div>'; // Cerrar el contenedor
 
     // Cargar el contenido HTML en DOMPDF
@@ -112,7 +122,7 @@ function generarPDF($datosEmpresa, $suma, $mensaje, $preguntas, $puntajes, $tema
         mostrarPDF($pdfContent);
     } else {
         echo "Error al enviar el correo.";
-}
+    }
 }
 
 function mostrarPDF($pdfContent) {
