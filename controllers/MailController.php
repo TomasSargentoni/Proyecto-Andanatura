@@ -29,13 +29,20 @@ function enviarEmail($pdfContent, $datosEmpresa) {
 
         // Contenido del email
         $mail->isHTML(true);  // Configurar formato HTML
-        $mail->Subject = 'Resultado Test Andanatura';
 
-        $mail->Body    = '<b>Resultados test</b>.';
+        $mail->Subject = 'AceleraPyme - Resultado test - ' . $datosEmpresa["nombreEmpresa"];
+        $mail->Body = '
+        <div style="font-family: Arial, sans-serif; color: black;">
+            <b>Empresa:</b> ' . $datosEmpresa["nombreEmpresa"] . '<br>
+            <b>Persona de contacto:</b> ' . $datosEmpresa["nombreContacto"] . ' ' . $datosEmpresa["apellidoContacto"] . '<br>
+            <b>E-Mail:</b> <span style="color: black;">' . $datosEmpresa["correoContacto"] . '</span><br>
+            <b>Teléfono de contacto:</b> <span style="color: black;">' . $datosEmpresa["telefonoContacto"] . '</span>
+        </div>';
+        
         $mail->AltBody = '<b>Resultados test</b>.';
 
         // Adjuntar el PDF generado
-        $mail->addStringAttachment($pdfContent, 'resultado_test.pdf', 'base64', 'application/pdf');
+        $mail->addStringAttachment($pdfContent, 'resultado_test_'.$datosEmpresa["nombreEmpresa"].'.pdf', 'base64', 'application/pdf');
         
         // Enviar el correo
         if ($mail->send()) {

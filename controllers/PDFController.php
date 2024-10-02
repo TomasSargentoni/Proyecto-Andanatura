@@ -140,13 +140,11 @@ function generarPDF($datosEmpresa, $suma, $mensaje, $preguntas, $puntajes, $tema
     $pdfContent = $dompdf->output();
 
     // Llamar a la función para enviar el correo con el PDF en memoria
-     $enviado = false;
-     
-     // $enviado = enviarEmail($pdfContent, $datosEmpresa);
-     
+    $enviado = enviarEmail($pdfContent, $datosEmpresa);
+
      // Mostrar el PDF en el navegador solo si se envió el correo
      if ($enviado) {
-         mostrarPDF($pdfContent);
+         mostrarPDF($pdfContent,$datosEmpresa);
         } else {
         // Prepara un mensaje de error
         echo "<script>
@@ -154,7 +152,7 @@ function generarPDF($datosEmpresa, $suma, $mensaje, $preguntas, $puntajes, $tema
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                html: '<span class= my-custom-content>El envío falló. Por favor intentelo denuevo mas tarde.</span>',
+                html: '<span class= my-custom-content>El envío falló. Por favor intentelo de nuevo mas tarde.</span>',
                 confirmButtonText: 'Aceptar',
                 width: '600px', // Ajusta el ancho a tu preferencia
                 padding: '1em', // Agrega un poco de relleno para mejorar el aspecto
@@ -168,13 +166,13 @@ function generarPDF($datosEmpresa, $suma, $mensaje, $preguntas, $puntajes, $tema
         }
 }
 
-function mostrarPDF($pdfContent) {
+function mostrarPDF($pdfContent,$datosEmpresa) {
     if (ob_get_length()) {
         ob_end_clean(); // Limpiar el buffer de salida si hay algo
     }
 
     header('Content-Type: application/pdf');
-    header('Content-Disposition: inline; filename="resultado_test.pdf"');
+    header('Content-Disposition: inline; filename="resultado_test_' . $datosEmpresa["nombreEmpresa"] . '.pdf"');
     echo $pdfContent;
     exit; // Termina la ejecución del script después de mostrar el PDF
 }
