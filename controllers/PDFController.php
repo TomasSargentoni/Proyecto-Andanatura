@@ -5,6 +5,8 @@ ini_set('display_errors', 1);
 
 require '../vendor/autoload.php';
 
+
+
 use Dompdf\Dompdf;
 use Dompdf\Options;
 
@@ -62,7 +64,7 @@ function generarPDF($datosEmpresa, $suma, $mensaje, $preguntas, $puntajes, $tema
 
     // Contenedor para el contenido principal
     $html .= '<div class="content">'; // Añadir margen superior
-    $html .= '<h1 style="text-align: center;">Resultados test - ' . htmlspecialchars(reset($datosEmpresa)) . '</h1>';
+    $html .= '<h1 style="text-align: center; margin-bottom: -2rem;">Resultados test - ' . htmlspecialchars(reset($datosEmpresa)) . '</h1>';
     $html .= '<h2 style="text-align: center;"></h2><ol class="preguntas"><br>'; // Cambiado <ul> a <ol>
 
     // Inicializar una variable para almacenar las preguntas y resultados
@@ -74,6 +76,29 @@ function generarPDF($datosEmpresa, $suma, $mensaje, $preguntas, $puntajes, $tema
     // Recorre cada pregunta y su puntaje correspondiente
     for ($i = 0; $i < $cantidadPreguntas; $i++) {
 
+        switch ($i) {
+            case 0:
+                $preguntasYResultados .= '<h2>' . $temas[0] . '</h2>';
+                break;
+            case 6:
+                $preguntasYResultados .= '<h2>' . $temas[1] . '</h2>';
+                break;
+            case 9:
+                $preguntasYResultados .= '<h2>' . $temas[2] . '</h2>';
+                break;
+            case 16:
+                $preguntasYResultados .= '<h2>' . $temas[3] . '</h2>';
+                break;
+            case 26:
+                $preguntasYResultados .= '<h2>' . $temas[4] . '</h2>';
+                break;
+            case 30:
+                $preguntasYResultados .= '<h2>' . $temas[5] . '</h2>';
+                break;
+            default:
+                break;
+        }
+        
         $pregunta = htmlspecialchars($preguntas[$i]);
         $puntaje = $puntajes["pregunta" . $i];
 
@@ -115,14 +140,33 @@ function generarPDF($datosEmpresa, $suma, $mensaje, $preguntas, $puntajes, $tema
     $pdfContent = $dompdf->output();
 
     // Llamar a la función para enviar el correo con el PDF en memoria
-    $enviado = enviarEmail($pdfContent);
-
-    // Mostrar el PDF en el navegador solo si se envió el correo
-    if ($enviado) {
-        mostrarPDF($pdfContent);
-    } else {
-        echo "Error al enviar el correo.";
-    }
+     $enviado = false;
+     
+     // $enviado = enviarEmail($pdfContent, $datosEmpresa);
+     
+     // Mostrar el PDF en el navegador solo si se envió el correo
+     if ($enviado) {
+         mostrarPDF($pdfContent);
+        } else {
+        // Prepara un mensaje de error
+        echo "<script>
+            document.addEventListener('DOMContentLoaded', function() {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'El envío falló. Por favor, verifica tus datos e inténtalo de nuevo.',
+                confirmButtonText: 'Aceptar',
+                width: '600px', // Ajusta el ancho a tu preferencia
+                padding: '1em', // Agrega un poco de relleno para mejorar el aspecto
+                customClass: {
+                    title: 'my-custom-title', // Clase personalizada para el título
+                    content: 'my-custom-content', // Clase personalizada para el contenido
+                    confirmButton: 'my-custom-button' // Clase personalizada para el botón
+                }
+            });
+            });
+        </script>";
+        }
 }
 
 function mostrarPDF($pdfContent) {
@@ -131,7 +175,7 @@ function mostrarPDF($pdfContent) {
     }
 
     header('Content-Type: application/pdf');
-    header('Content-Disposition: inline; filename="mi_documento.pdf"');
+    header('Content-Disposition: inline; filename="resultado_test.pdf"');
     echo $pdfContent;
     exit; // Termina la ejecución del script después de mostrar el PDF
 }

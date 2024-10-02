@@ -5,7 +5,7 @@ require '../vendor/autoload.php'; // Asegúrate de que esta ruta sea correcta
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-function enviarEmail($pdfContent) {
+function enviarEmail($pdfContent, $datosEmpresa) {
     // Instancia de PHPMailer
     $mail = new PHPMailer(true);
 
@@ -22,19 +22,20 @@ function enviarEmail($pdfContent) {
         // Remitente
         $mail->setFrom('digitalizacion.andanatura@gmail.com', 'Andanatura');
         
+
         // Destinatarios
-        $mail->addAddress('manu.lucero07@gmail.com'); // Dirección del primer destinatario
-        $mail->addAddress('tomassargentoni92@gmail.com'); // Dirección del segundo destinatario
+        $mail->addAddress('tomassargentoni92@gmail.com'); // Aca deberia ir el mail de andanatura
+        $mail->addAddress($datosEmpresa["correoContacto"]); // Mail cargado por el usuario
 
         // Contenido del email
         $mail->isHTML(true);  // Configurar formato HTML
-        $mail->Subject = 'Prueba1';
+        $mail->Subject = 'Resultado Test Andanatura';
 
         $mail->Body    = '<b>Resultados test</b>.';
         $mail->AltBody = '<b>Resultados test</b>.';
 
         // Adjuntar el PDF generado
-        $mail->addStringAttachment($pdfContent, 'mi_documento.pdf', 'base64', 'application/pdf');
+        $mail->addStringAttachment($pdfContent, 'resultado_test.pdf', 'base64', 'application/pdf');
         
         // Enviar el correo
         if ($mail->send()) {

@@ -88,7 +88,7 @@ class PaginasController {
         
 
         // Renderizar la vista con las preguntas paginadas
-        $router->render('paginas/contacto', [
+        $router->render('paginas/test', [
             'preguntas' => $preguntas,
             'temas' => $temas
         ]);

@@ -100,12 +100,4 @@
 
 
     </form>
-    <?php
-    if (!empty($errores)) {
-                // Mostrar los errores en caso de que falten respuestas
-                foreach ($errores as $error) {
-                    echo "<p class='error'>$error</p>";
-                }
-    }
-    ?>
 </main>
