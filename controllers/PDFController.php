@@ -154,13 +154,12 @@ function generarPDF($datosEmpresa, $suma, $mensaje, $preguntas, $puntajes, $tema
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: 'El envío falló. Por favor, verifica tus datos e inténtalo de nuevo.',
+                html: '<span class= my-custom-content>El envío falló. Por favor intentelo denuevo mas tarde.</span>',
                 confirmButtonText: 'Aceptar',
                 width: '600px', // Ajusta el ancho a tu preferencia
                 padding: '1em', // Agrega un poco de relleno para mejorar el aspecto
                 customClass: {
                     title: 'my-custom-title', // Clase personalizada para el título
-                    content: 'my-custom-content', // Clase personalizada para el contenido
                     confirmButton: 'my-custom-button' // Clase personalizada para el botón
                 }
             });
