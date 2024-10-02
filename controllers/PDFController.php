@@ -5,8 +5,6 @@ ini_set('display_errors', 1);
 
 require '../vendor/autoload.php';
 
-
-
 use Dompdf\Dompdf;
 use Dompdf\Options;
 
@@ -87,7 +85,7 @@ function generarPDF($datosEmpresa, $suma, $mensaje, $preguntas, $puntajes, $tema
                 $preguntasYResultados .= '<h2>' . $temas[2] . '</h2>';
                 break;
             case 16:
-                $preguntasYResultados .= '<h2>' . $temas[3] . '</h2>';
+                $preguntasYResultados .= '<h2>  ' . $temas[3] . '</h2>';
                 break;
             case 26:
                 $preguntasYResultados .= '<h2>' . $temas[4] . '</h2>';

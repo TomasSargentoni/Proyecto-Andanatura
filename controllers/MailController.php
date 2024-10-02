@@ -24,7 +24,7 @@ function enviarEmail($pdfContent, $datosEmpresa) {
         
 
         // Destinatarios
-        $mail->addAddress('tomassargentoni92@gmail.com'); // Aca deberia ir el mail de andanatura
+        $mail->addAddress('jcampos@andanatura.org'); // Correo Julio
         $mail->addAddress($datosEmpresa["correoContacto"]); // Mail cargado por el usuario
 
         // Contenido del email
