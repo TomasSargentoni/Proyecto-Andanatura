@@ -33,10 +33,10 @@ function enviarEmail($pdfContent, $datosEmpresa) {
         $mail->Subject = 'AceleraPyme - Resultado test - ' . $datosEmpresa["nombreEmpresa"];
         $mail->Body = '
         <div style="font-family: Arial, sans-serif; color: black;">
-            <b>Empresa:</b> ' . $datosEmpresa["nombreEmpresa"] . '<br>
-            <b>Persona de contacto:</b> ' . $datosEmpresa["nombreContacto"] . ' ' . $datosEmpresa["apellidoContacto"] . '<br>
-            <b>E-Mail:</b> <span style="color: black;">' . $datosEmpresa["correoContacto"] . '</span><br>
-            <b>Teléfono de contacto:</b> <span style="color: black;">' . $datosEmpresa["telefonoContacto"] . '</span>
+            <b>EMPRESA:</b> ' . $datosEmpresa["nombreEmpresa"] . '<br>
+            <b>PERSONA DE CONTACTO:</b> ' . $datosEmpresa["nombreContacto"] . ' ' . $datosEmpresa["apellidoContacto"] . '<br>
+            <b>E-MAIL:</b> <span style="color: black;">' . $datosEmpresa["correoContacto"] . '</span><br>
+            <b>TELEFONO DE CONTACTO:</b> <span style="color: black;">' . $datosEmpresa["telefonoContacto"] . '</span>
         </div>';
         
         $mail->AltBody = '<b>Resultados test</b>.';

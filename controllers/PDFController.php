@@ -65,6 +65,21 @@ function generarPDF($datosEmpresa, $suma, $mensaje, $preguntas, $puntajes, $tema
     $html .= '<h1 style="text-align: center; margin-bottom: -2rem;">Resultados test - ' . htmlspecialchars(reset($datosEmpresa)) . '</h1>';
     $html .= '<h2 style="text-align: center;"></h2><ol class="preguntas"><br>'; // Cambiado <ul> a <ol>
 
+    // Generar la tabla con temas y puntajes
+    $html .= '<br><br><h2>Madurez digital: resultado del test</h2>';
+    $html .= '<table border="1" style="width: 100%; border-collapse: collapse; text-align: left;">';
+    $html .= '<thead><tr><th>Tema</th><th>Resultado</th></tr></thead><tbody>';
+
+    // Usar foreach para llenar la tabla
+    foreach ($temas as $index => $tema) {
+        $puntaje = isset($suma[$index]) ? htmlspecialchars($suma[$index]) : 'No disponible';
+        $html .= '<tr><td>' . htmlspecialchars($tema) . '</td><td>' . $puntaje . '</td></tr>';
+    }
+
+    $html .= '</tbody></table>'; // Cerrar la tabla
+    // Asegurarse de que el mensaje use la misma fuente
+    $html .= '<br><br> <p style="text-align: justify;">' . ($mensaje) . '</p>';
+
     // Inicializar una variable para almacenar las preguntas y resultados
     $preguntasYResultados = '';
 
@@ -101,28 +116,13 @@ function generarPDF($datosEmpresa, $suma, $mensaje, $preguntas, $puntajes, $tema
         $puntaje = $puntajes["pregunta" . $i];
 
         // Concatenar cada resultado a la variable
-        $preguntasYResultados .= '<li>' . $pregunta . ' <br>Puntaje: <b>' . $puntaje . '</b></li><br>';
+        $preguntasYResultados .= '<li>' . $pregunta . ' <br>Nivel: <b>' . $puntaje . '</b></li><br>';
     }
 
     // Añadir los resultados a HTML después del bucle
     $html .= $preguntasYResultados;
     $html .= '</ol>'; // Cambiado </ul> a </ol>
 
-    // Generar la tabla con temas y puntajes
-    $html .= '<br><br><h2>Resumen de Temas y Puntajes</h2>';
-    $html .= '<table border="1" style="width: 100%; border-collapse: collapse; text-align: left;">';
-    $html .= '<thead><tr><th>Tema</th><th>Puntuación</th></tr></thead><tbody>';
-
-    // Usar foreach para llenar la tabla
-    foreach ($temas as $index => $tema) {
-        $puntaje = isset($suma[$index]) ? htmlspecialchars($suma[$index]) : 'No disponible';
-        $html .= '<tr><td>' . htmlspecialchars($tema) . '</td><td>' . $puntaje . '</td></tr>';
-    }
-
-    $html .= '</tbody></table>'; // Cerrar la tabla
-
-    // Asegurarse de que el mensaje use la misma fuente
-    $html .= '<br><br> <p style="text-align: justify;">' . ($mensaje) . '</p>';
     $html .= '</div>'; // Cerrar el contenedor
 
     // Cargar el contenido HTML en DOMPDF
@@ -134,15 +134,20 @@ function generarPDF($datosEmpresa, $suma, $mensaje, $preguntas, $puntajes, $tema
     // Renderizar el PDF
     $dompdf->render();
 
+    // Añadir paginación al PDF
+    $canvas = $dompdf->getCanvas();
+    $canvas->page_text(540, 820, "{PAGE_NUM}", 'Courier', 13, array(0, 0, 0));
+
     // Obtener el contenido del PDF generado
     $pdfContent = $dompdf->output();
 
     // Llamar a la función para enviar el correo con el PDF en memoria
-    $enviado = enviarEmail($pdfContent, $datosEmpresa);
+    // $enviado = enviarEmail($pdfContent, $datosEmpresa);
+    $enviado = true;
 
      // Mostrar el PDF en el navegador solo si se envió el correo
      if ($enviado) {
-         mostrarPDF($pdfContent,$datosEmpresa);
+         mostrarPDF($pdfContent, $datosEmpresa);
         } else {
         // Prepara un mensaje de error
         echo "<script>
@@ -164,7 +169,7 @@ function generarPDF($datosEmpresa, $suma, $mensaje, $preguntas, $puntajes, $tema
         }
 }
 
-function mostrarPDF($pdfContent,$datosEmpresa) {
+function mostrarPDF($pdfContent, $datosEmpresa) {
     if (ob_get_length()) {
         ob_end_clean(); // Limpiar el buffer de salida si hay algo
     }

@@ -65,7 +65,7 @@ function obtenerTextoResultante(int $total) {
 
     $mensajeConSaltos = nl2br($mensaje);
 
-    $mensajeFinal = 'Usted obtuvo ' . $total . ' puntos. <br />' . $mensajeConSaltos;
+    $mensajeFinal = 'Su nivel de madurez digital se sitúa en ' . $total . ' de un total de 185. <br />' . $mensajeConSaltos;
     return $mensajeFinal;
 
 }
