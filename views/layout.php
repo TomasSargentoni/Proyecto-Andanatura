@@ -8,9 +8,22 @@
 </head>
 <body>
     
+    <?php
+    $currentPath = $_SERVER['REQUEST_URI'];
+
+    if (strpos($currentPath, '/acelerapyme/test') !== false) {
+        $logoPath = '/build/img/acelerapyme_logo.jpg'; // Imagen para acelerapyme
+    } elseif (strpos($currentPath, '/ruralpyme/test') !== false) {
+        $logoPath = '/build/img/ruralpyme_logo.jpg'; // Imagen para ruralpyme
+    } else {
+        $logoPath = '/build/img/logo.jpg'; // Imagen por defecto
+    }
+    ?>
+
     <header class="header <?php echo $inicio ? 'inicio' : '';?>">
         <div class="logo">
-            <img src="/build/img/logo.jpg" alt="Logotipo de Andanatura">
+            <!-- Mostrar la imagen correcta según la URL -->
+            <img src="<?php echo $logoPath; ?>" alt="Logotipo correspondiente">
         </div>
     </header>
     
