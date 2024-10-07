@@ -75,7 +75,7 @@ function generarPDF($datosEmpresa, $suma, $mensaje, $preguntas, $puntajes, $tema
     $html .= '<h2 style="text-align: center;"></h2><ol class="preguntas"><br>'; // Cambiado <ul> a <ol>
 
     // Generar la tabla con temas y puntajes
-    $html .= '<h2>Madurez digital: resultado del test</h2>';
+    $html .= '<h2>MADUREZ DIGITAL: RESULTADO DEL TEST</h2>';
     $html .= '<table border="1" style="width: 100%; border-collapse: collapse; text-align: left;">';
     $html .= '<thead><tr><th>Tema</th><th>Resultado</th></tr></thead><tbody>';
 
@@ -133,6 +133,7 @@ function generarPDF($datosEmpresa, $suma, $mensaje, $preguntas, $puntajes, $tema
     }
 
     // Añadir los resultados a HTML después del bucle
+    $html .= '<h2> SUS RESPUESTAS AL TEST</h2>';
     $html .= $preguntasYResultados;
     $html .= '</ol>'; // Cambiado </ul> a </ol>
 
