@@ -16,7 +16,7 @@ class PaginasController {
         // Definir los temas o secciones
         $temas = [
             '1. ACCESO A LA INFRAESTRUCTURA DIGITAL',
-            '2. ASEQUIBILIDAD',
+            '2. DISPONIBILIDAD PRESUPUESTARIA',
             '3. HABILIDADES DIGITALES',
             '4. USO EFECTIVO DE LA TECNOLOGÍA',
             '5. DESIGUALDADES DIGITALES',

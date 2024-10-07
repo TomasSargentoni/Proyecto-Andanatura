@@ -49,7 +49,8 @@ function generarPDF($datosEmpresa, $suma, $mensaje, $preguntas, $puntajes, $tema
             z-index: -1; /* Detrás del contenido */
         }
         .content {
-            margin-top: 20px; /* Espacio para el contenido */
+            padding-left: 0; 
+            padding-right: 30px;
         }
         .preguntas { /* Estilo para las preguntas */
             font-family: "Montserrat", sans-serif;
@@ -62,23 +63,27 @@ function generarPDF($datosEmpresa, $suma, $mensaje, $preguntas, $puntajes, $tema
 
     // Contenedor para el contenido principal
     $html .= '<div class="content">'; // Añadir margen superior
-    $html .= '<h1 style="text-align: center; margin-bottom: -2rem;">Resultados test - ' . htmlspecialchars(reset($datosEmpresa)) . '</h1>';
+    $html .= '<h1 style="text-align: center; margin-bottom: -3rem;">Resultados test - ' . htmlspecialchars(reset($datosEmpresa)) . '</h1>';
     $html .= '<h2 style="text-align: center;"></h2><ol class="preguntas"><br>'; // Cambiado <ul> a <ol>
 
     // Generar la tabla con temas y puntajes
-    $html .= '<br><br><h2>Madurez digital: resultado del test</h2>';
+    $html .= '<h2>Madurez digital: resultado del test</h2>';
     $html .= '<table border="1" style="width: 100%; border-collapse: collapse; text-align: left;">';
     $html .= '<thead><tr><th>Tema</th><th>Resultado</th></tr></thead><tbody>';
 
     // Usar foreach para llenar la tabla
     foreach ($temas as $index => $tema) {
-        $puntaje = isset($suma[$index]) ? htmlspecialchars($suma[$index]) : 'No disponible';
+        $puntaje = isset($suma[$index]) ? htmlspecialchars($suma[$index] . " (" . $suma[$index + 8] . ")") : 'No disponible';
         $html .= '<tr><td>' . htmlspecialchars($tema) . '</td><td>' . $puntaje . '</td></tr>';
     }
 
     $html .= '</tbody></table>'; // Cerrar la tabla
     // Asegurarse de que el mensaje use la misma fuente
-    $html .= '<br><br> <p style="text-align: justify;">' . ($mensaje) . '</p>';
+    $html .= '<br> <p style="text-align: justify;">' . ($mensaje) . '</p>';
+
+    //Recomendaciones por bloque
+    $html .= '<h4>Recomendaciones por bloque</h4>';
+    $html .= '<p style="text-align: justify;">' . ($suma[7]) . '</p>';
 
     // Inicializar una variable para almacenar las preguntas y resultados
     $preguntasYResultados = '';
@@ -100,10 +105,10 @@ function generarPDF($datosEmpresa, $suma, $mensaje, $preguntas, $puntajes, $tema
                 $preguntasYResultados .= '<h2>' . $temas[2] . '</h2>';
                 break;
             case 16:
-                $preguntasYResultados .= '<h2>  ' . $temas[3] . '</h2>';
+                $preguntasYResultados .= '<h2 style="margin-top: 5px;">  ' . $temas[3] . '</h2>';
                 break;
             case 26:
-                $preguntasYResultados .= '<h2>' . $temas[4] . '</h2>';
+                $preguntasYResultados .= '<h2 style="margin-top: 10px;">' . $temas[4] . '</h2>';
                 break;
             case 30:
                 $preguntasYResultados .= '<h2>' . $temas[5] . '</h2>';
@@ -136,7 +141,8 @@ function generarPDF($datosEmpresa, $suma, $mensaje, $preguntas, $puntajes, $tema
 
     // Añadir paginación al PDF
     $canvas = $dompdf->getCanvas();
-    $canvas->page_text(540, 820, "{PAGE_NUM}", 'Courier', 13, array(0, 0, 0));
+    $canvas->page_text(540, 795, "{PAGE_NUM}", 'Helvetica', 10, array(0.4, 0.4, 0.4));
+
 
     // Obtener el contenido del PDF generado
     $pdfContent = $dompdf->output();
