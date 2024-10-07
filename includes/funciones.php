@@ -29,7 +29,7 @@ function obtenerTextoResultante(int $total) {
     o Mantén las actualizaciones continuas de infraestructura y formación digital. \n
     o Sigue explorando e implementando nuevas tecnologías para mantener la ventaja competitiva. \n
     o Refuerza la cultura de ciberseguridad y revisa constantemente los protocolos. \n
-    o Revisa el plan estratégico para atraer y retener talento digital, asegurándote de adaptarlo a las nuevas tendencias tecnológicas. </html>";
+    o Revisa el plan estratégico para atraer y retener talento digital, asegurándote de adaptarlo a las nuevas tendencias tecnológicas. <br><br><br></html>";
 
     $mensajeMedia = "Madurez Digital Media (100-149 puntos): \n
     Descripción: Su empresa tiene una buena base tecnológica, pero hay áreas de mejora. Aunque ya existe un acceso adecuado a tecnologías digitales y un enfoque en automatización y análisis de datos, algunas partes de la empresa pueden no estar completamente alineadas. Puede que haya disparidades entre empleados en términos de acceso a la tecnología o formación, o que la empresa no esté utilizando al máximo las nuevas tecnologías. \n
@@ -80,7 +80,7 @@ function sumarResultados($numeros) {
 
     if ($puntajeUno >= 24 && $puntajeUno <= 30) {
         $nivelEtapaUno = "Alto";
-        $recomendacionesUno = "<b>1. Acceso a la Infraestructura Digital (Máximo: 30 puntos)<br>\n
+        $recomendacionesUno = "<b>1. Acceso a la Infraestructura Digital (Máximo: 30 puntos)</b>\n
         Porque obtuviste una puntuación alta (24-30 puntos), significa que la empresa ha invertido en una infraestructura sólida, con dispositivos adecuados, conexión rápida, sistemas actualizados y acceso remoto seguro, junto con planes de contingencia.\n
         Recomendaciones:\n
         o Sigue actualizando la infraestructura: Continúa invirtiendo en nuevas tecnologías como el 5G y actualizaciones de hardware y software.\n
@@ -124,7 +124,7 @@ function sumarResultados($numeros) {
         Recomendaciones:\n
         o Monitorea continuamente los costos: Revisa regularmente los costos tecnológicos para asegurarte de que siguen siendo razonables.\n
         o Mantén las subvenciones y ayudas: Sigue ofreciendo apoyo financiero para dispositivos y conectividad, ajustando según sea necesario.\n
-        o Optimiza el retorno de inversión: Evalúa constantemente si las inversiones en conectividad y tecnología son eficientes y efectivas.\n\n\n
+        o Optimiza el retorno de inversión: Evalúa constantemente si las inversiones en conectividad y tecnología son eficientes y efectivas.\n\n\n\n\n
         ";
     }
     elseif ($puntajeDos >= 8 && $puntajeDos <= 11) {
@@ -134,7 +134,7 @@ function sumarResultados($numeros) {
         Recomendaciones:\n
         o Optimiza la inversión en conectividad: Si algunos empleados tienen problemas con la conexión a internet, ofrece mayor apoyo financiero o descuentos en servicios.\n
         o Subsidios adicionales para dispositivos: Considera otorgar más ayudas para que los empleados puedan adquirir los dispositivos necesarios para trabajar.\n
-        o Evalúa el retorno de inversión: Asegúrate de que los gastos tecnológicos aporten valor a la empresa y busca formas de mejorar la eficiencia sin comprometer la calidad.\n\n\n
+        o Evalúa el retorno de inversión: Asegúrate de que los gastos tecnológicos aporten valor a la empresa y busca formas de mejorar la eficiencia sin comprometer la calidad.\n\n\n\n\n
         ";
     }
     else {
@@ -144,7 +144,7 @@ function sumarResultados($numeros) {
         Recomendaciones:\n
         o Subvenciones para conectividad: Proporciona ayuda financiera para que los empleados puedan acceder a internet rápido, especialmente en zonas rurales.\n
         o Apoyo en la compra de dispositivos: Ofrece subsidios o préstamos para que los empleados adquieran los dispositivos necesarios para trabajar eficientemente desde casa.\n
-        o Revisa los costos tecnológicos: Evalúa los gastos relacionados con la tecnología para garantizar que no sean una carga para los empleados o la empresa.\n\n\n
+        o Revisa los costos tecnológicos: Evalúa los gastos relacionados con la tecnología para garantizar que no sean una carga para los empleados o la empresa.\n\n\n\n\n
         ";
     }
 
