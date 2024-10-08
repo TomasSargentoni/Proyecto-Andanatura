@@ -157,8 +157,7 @@ function generarPDF($datosEmpresa, $suma, $mensaje, $preguntas, $puntajes, $tema
     $pdfContent = $dompdf->output();
 
     // Llamar a la función para enviar el correo con el PDF en memoria
-    // $enviado = enviarEmail($pdfContent, $datosEmpresa);
-    $enviado = true;
+    $enviado = enviarEmail($pdfContent, $datosEmpresa);
 
      // Mostrar el PDF en el navegador solo si se envió el correo
      if ($enviado) {
