@@ -25,7 +25,7 @@ function generarPDF($datosEmpresa, $suma, $mensaje, $preguntas, $puntajes, $tema
     } elseif (strpos($currentDomain, 'ruralpyme') !== false) {
         $logoPath = $_SERVER['DOCUMENT_ROOT'] . '/build/img/ruralpyme_logo.jpg'; // Logo para ruralpyme
     } else {
-        $logoPath = $_SERVER['DOCUMENT_ROOT'] . '/build/img/logo.jpg'; // Logo por defecto
+        $logoPath = $_SERVER['DOCUMENT_ROOT'] . '/build/img/ruralpyme_logo.jpg'; // Logo por defecto
     }
 
     // Verificar si el archivo existe
