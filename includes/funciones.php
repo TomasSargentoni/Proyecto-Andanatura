@@ -120,9 +120,9 @@ function sumarResultados($numeros) {
     if ($puntajeDos >= 12 && $puntajeDos <= 15) {
         $nivelEtapaDos = "Alto";
         $recomendacionesDos = "<b>2. Disponibilidad presupuestaria (Máximo: 15 puntos)</b>\n
-        Porque obtuviste una puntuación alta (12-15 puntos), esto indica que los costos de conectividad y dispositivos son asequibles para toda la plantilla, incluyendo los empleados remotos.\n
+        Porque obtuviste una puntuación alta (12-15 puntos), esto indica que los costes de conectividad y dispositivos son asequibles para toda la plantilla, incluyendo los empleados remotos.\n
         Recomendaciones:\n
-        o Monitorea continuamente los costos: Revisa regularmente los costos tecnológicos para asegurarte de que siguen siendo razonables.\n
+        o Monitorea continuamente los costes: Revisa regularmente los costes tecnológicos para asegurarte de que siguen siendo razonables.\n
         o Mantén las subvenciones y ayudas: Sigue ofreciendo apoyo financiero para dispositivos y conectividad, ajustando según sea necesario.\n
         o Optimiza el retorno de inversión: Evalúa constantemente si las inversiones en conectividad y tecnología son eficientes y efectivas.\n\n\n\n\n
         ";
@@ -130,7 +130,7 @@ function sumarResultados($numeros) {
     elseif ($puntajeDos >= 8 && $puntajeDos <= 11) {
         $nivelEtapaDos = "Moderado";
         $recomendacionesDos = "<b>2. Disponibilidad presupuestaria (Máximo: 15 puntos)</b>\n
-        Porque obtuviste una puntuación moderada (8-11 puntos), esto sugiere que la empresa ha hecho avances para que los costos tecnológicos sean accesibles, pero algunos empleados remotos podrían no recibir suficiente apoyo financiero.\n
+        Porque obtuviste una puntuación moderada (8-11 puntos), esto sugiere que la empresa ha hecho avances para que los costes tecnológicos sean accesibles, pero algunos empleados remotos podrían no recibir suficiente apoyo financiero.\n
         Recomendaciones:\n
         o Optimiza la inversión en conectividad: Si algunos empleados tienen problemas con la conexión a internet, ofrece mayor apoyo financiero o descuentos en servicios.\n
         o Subsidios adicionales para dispositivos: Considera otorgar más ayudas para que los empleados puedan adquirir los dispositivos necesarios para trabajar.\n
@@ -140,11 +140,11 @@ function sumarResultados($numeros) {
     else {
         $nivelEtapaDos = "Bajo";
         $recomendacionesDos = "<b>2. Disponibilidad presupuestaria (Máximo: 15 puntos)</b>\n
-        Porque obtuviste una puntuación baja (0-7 puntos), esto sugiere que los costos de conectividad y dispositivos tecnológicos no son accesibles para todos los empleados, especialmente para quienes trabajan en áreas remotas. Además, la empresa no proporciona suficientes apoyos financieros para el trabajo remoto.\n
+        Porque obtuviste una puntuación baja (0-7 puntos), esto sugiere que los costes de conectividad y dispositivos tecnológicos no son accesibles para todos los empleados, especialmente para quienes trabajan en áreas remotas. Además, la empresa no proporciona suficientes apoyos financieros para el trabajo remoto.\n
         Recomendaciones:\n
         o Subvenciones para conectividad: Proporciona ayuda financiera para que los empleados puedan acceder a internet rápido, especialmente en zonas rurales.\n
         o Apoyo en la compra de dispositivos: Ofrece subsidios o préstamos para que los empleados adquieran los dispositivos necesarios para trabajar eficientemente desde casa.\n
-        o Revisa los costos tecnológicos: Evalúa los gastos relacionados con la tecnología para garantizar que no sean una carga para los empleados o la empresa.\n\n\n\n\n
+        o Revisa los costes tecnológicos: Evalúa los gastos relacionados con la tecnología para garantizar que no sean una carga para los empleados o la empresa.\n\n\n\n\n
         ";
     }
 
@@ -197,7 +197,7 @@ function sumarResultados($numeros) {
         Recomendaciones:\n
         o Explora tecnologías avanzadas: Sigue investigando sobre tecnologías emergentes como inteligencia artificial avanzada, aprendizaje automático, análisis predictivo o la automatización robótica.\n
         o Expande el uso de análisis de datos: Utiliza los datos para predecir tendencias, personalizar servicios y productos, y mejorar la toma de decisiones estratégicas.\n
-        o Consolida tu ecosistema digital: Expande tu presencia en línea y explora nuevas plataformas para aumentar tu visibilidad.\n\n
+        o Consolida tu ecosistema digital: Expande tu presencia online y explora nuevas plataformas para aumentar tu visibilidad.\n\n
         ";
     }
     elseif ($puntajeCuatro >= 28 && $puntajeCuatro <= 41) {
@@ -208,7 +208,7 @@ function sumarResultados($numeros) {
         o Amplía el uso de herramientas colaborativas: Si ya usas algunas plataformas digitales, expándelas a más áreas de la empresa para mejorar la colaboración y productividad. \n
         o Automatiza más procesos: Evalúa qué otras áreas pueden beneficiarse de la automatización para reducir tareas repetitivas y mejorar la eficiencia.\n
         o Aumenta el uso del análisis de datos: Extiende el uso de Big Data y análisis en más departamentos para mejorar la toma de decisiones.\n
-        o Expande el comercio electrónico y marketing digital: Si ya vendes productos o servicios en línea, explora nuevas formas de mejorar tu presencia online con estrategias más avanzadas de marketing digital.\n\n
+        o Expande el comercio electrónico y marketing digital: Si ya vendes productos o servicios online, explora nuevas formas de mejorar tu presencia online con estrategias más avanzadas de marketing digital.\n\n
         ";
     }
     else {
@@ -218,7 +218,7 @@ function sumarResultados($numeros) {
         Recomendaciones:\n
         o Implementa herramientas colaborativas: Introduce plataformas como Zoom o Google Workspace para mejorar la colaboración y el trabajo en equipo.\n
         o Automatiza procesos: Adopta herramientas como CRM o ERP para mejorar la eficiencia y reducir la carga de trabajo manual.\n
-        o Comercio electrónico y marketing digital: Si aún no lo has hecho, empieza a utilizar el comercio electrónico y el marketing digital (SEO, SEM, redes sociales) para mejorar tu presencia en línea.\n
+        o Comercio electrónico y marketing digital: Si aún no lo has hecho, empieza a utilizar el comercio electrónico y el marketing digital (SEO, SEM, redes sociales) para mejorar tu presencia online.\n
         o Análisis de datos: Implementa herramientas de análisis de datos para tomar decisiones más informadas.\n\n
         ";
     }
