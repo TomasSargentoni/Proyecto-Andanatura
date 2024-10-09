@@ -18,14 +18,14 @@ function generarPDF($datosEmpresa, $suma, $mensaje, $preguntas, $puntajes, $tema
     $dompdf = new Dompdf($options);
 
 
-    $currentDomain = $_SERVER['HTTP_HOST'];
+    $currentPath = $_SERVER['REQUEST_URI'];
 
-    if (strpos($currentDomain, 'acelerapyme') !== false) {
+    if (strpos($currentPath, 'acelerapyme/test') !== false) {
         $logoPath = $_SERVER['DOCUMENT_ROOT'] . '/build/img/acelerapyme_logo.jpg'; // Logo para acelerapyme
-    } elseif (strpos($currentDomain, 'ruralpyme') !== false) {
+    } elseif (strpos($currentPath, '/ruralpyme/test') !== false) {
         $logoPath = $_SERVER['DOCUMENT_ROOT'] . '/build/img/ruralpyme_logo.jpg'; // Logo para ruralpyme
     } else {
-        $logoPath = $_SERVER['DOCUMENT_ROOT'] . '/build/img/ruralpyme_logo.jpg'; // Logo por defecto
+        $logoPath = $_SERVER['DOCUMENT_ROOT'] . ''; // Logo por defecto
     }
 
     // Verificar si el archivo existe
@@ -157,7 +157,8 @@ function generarPDF($datosEmpresa, $suma, $mensaje, $preguntas, $puntajes, $tema
     $pdfContent = $dompdf->output();
 
     // Llamar a la función para enviar el correo con el PDF en memoria
-    $enviado = enviarEmail($pdfContent, $datosEmpresa);
+    //$enviado = enviarEmail($pdfContent, $datosEmpresa);
+    $enviado = true;
 
      // Mostrar el PDF en el navegador solo si se envió el correo
      if ($enviado) {
