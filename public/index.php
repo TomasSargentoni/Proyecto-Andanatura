@@ -11,7 +11,9 @@ $router = new Router();
 
 // Zona Publica
 $router->get("/ruralpyme/test/Proyecto-Andanatura/public/", [PaginasController::class, "index"]);
+$router->get("/acelerapyme/test/Proyecto-Andanatura/public/", [PaginasController::class, "index"]);
 $router->post("/ruralpyme/test/Proyecto-Andanatura/public/", [PaginasController::class, "index"]);
+$router->post("/acelerapyme/test/Proyecto-Andanatura/public/", [PaginasController::class, "index"]);
 
 
 $router->comprobarRutas();

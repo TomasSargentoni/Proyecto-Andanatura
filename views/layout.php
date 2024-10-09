@@ -11,7 +11,7 @@
     <?php
     $currentPath = $_SERVER['REQUEST_URI'];
 
-    if (strpos($currentPath, '/acelerapyme/test') !== false) {
+    if (strpos($currentPath, 'acelerapyme/test') !== false) {
         $logoPath = '/build/img/acelerapyme_logo.jpg'; // Imagen para acelerapyme
     } elseif (strpos($currentPath, '/ruralpyme/test') !== false) {
         $logoPath = '/build/img/ruralpyme_logo.jpg'; // Imagen para ruralpyme
