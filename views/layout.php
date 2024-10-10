@@ -12,11 +12,11 @@
     $currentPath = $_SERVER['REQUEST_URI'];
 
     if (strpos($currentPath, 'acelerapyme/test') !== false) {
-        $logoPath = '/build/img/acelerapyme_logo.jpg'; // Imagen para acelerapyme
+        $logoPath = '../public/build/img/acelerapyme_logo.jpg'; // Imagen para acelerapyme
     } elseif (strpos($currentPath, '/ruralpyme/test') !== false) {
-        $logoPath = '/build/img/ruralpyme_logo.jpg'; // Imagen para ruralpyme
+        $logoPath = '../public/build/img/ruralpyme_logo.jpg'; // Imagen para ruralpyme
     } else {
-        $logoPath = '/build/img/ruralpyme_logo.jpg'; // Imagen por defecto
+        $logoPath = '../public/build/img/ruralpyme_logo.jpg'; // Imagen por defecto
     }
     ?>
 
@@ -34,7 +34,7 @@
     </footer>
     
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="/build/js/bundle.min.js"></script>
+    <script src="../public/build/js/bundle.min.js"></script>
         
 </body>
 </html>
