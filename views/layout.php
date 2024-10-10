@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario Andanatura</title>
-    <link rel="stylesheet" href="/build/css/app.css">
+    <link rel="stylesheet" href="../src/scss/app.scss">
 </head>
 <body>
     
@@ -34,7 +34,7 @@
     </footer>
     
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="/build/js/bundle.min.js"></script>
+    <script src="../public/build/js/bundle.min.js"></script>
         
 </body>
 </html>
