@@ -21,11 +21,11 @@ function generarPDF($datosEmpresa, $suma, $mensaje, $preguntas, $puntajes, $tema
     $currentPath = $_SERVER['REQUEST_URI'];
 
     if (strpos($currentPath, 'acelerapyme/test') !== false) {
-        $logoPath = $_SERVER['DOCUMENT_ROOT'] . '/build/img/acelerapyme_logo.jpg'; // Logo para acelerapyme
+        $logoPath = '../public/build/img/acelerapyme_logo.jpg'; // Logo para acelerapyme
     } elseif (strpos($currentPath, '/ruralpyme/test') !== false) {
-        $logoPath = $_SERVER['DOCUMENT_ROOT'] . '/build/img/ruralpyme_logo.jpg'; // Logo para ruralpyme
+        $logoPath = '../public/build/img/ruralpyme_logo.jpg'; // Logo para ruralpyme
     } else {
-        $logoPath = $_SERVER['DOCUMENT_ROOT'] . ''; // Logo por defecto
+        $logoPath = ''; // Logo por defecto
     }
 
     // Verificar si el archivo existe
