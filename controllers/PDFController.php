@@ -25,7 +25,7 @@ function generarPDF($datosEmpresa, $suma, $mensaje, $preguntas, $puntajes, $tema
     } elseif (strpos($currentPath, '/ruralpyme/test') !== false) {
         $logoPath = '../public/build/img/ruralpyme_logo.jpg'; // Logo para ruralpyme
     } else {
-        $logoPath = ''; // Logo por defecto
+        $logoPath = '../public/build/img/ruralpyme_logo.jpg'; // Logo por defecto
     }
 
     // Verificar si el archivo existe
@@ -157,8 +157,7 @@ function generarPDF($datosEmpresa, $suma, $mensaje, $preguntas, $puntajes, $tema
     $pdfContent = $dompdf->output();
 
     // Llamar a la función para enviar el correo con el PDF en memoria
-    //$enviado = enviarEmail($pdfContent, $datosEmpresa);
-    $enviado = true;
+    $enviado = enviarEmail($pdfContent, $datosEmpresa);
 
      // Mostrar el PDF en el navegador solo si se envió el correo
      if ($enviado) {
